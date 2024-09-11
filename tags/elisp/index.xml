@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elisp on Niall&#39;s Blog</title>
+    <link>http://niallzhou.cfd/tags/elisp/</link>
+    <description>Recent content in Elisp on Niall&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 25 Apr 2024 23:38:28 +0800</lastBuildDate>
+    <atom:link href="http://niallzhou.cfd/tags/elisp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs 折腾插曲：改进 org-download 截图功能</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</link>
+      <pubDate>Thu, 25 Apr 2024 22:37:14 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</guid>
+      <description>如 Emacs 折腾小记（二） 中所说，利用 org-download + irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗</description>
+    </item>
+  </channel>
+</rss>

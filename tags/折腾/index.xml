@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>折腾 on Niall&#39;s Blog</title>
+    <link>http://niallzhou.cfd/tags/%E6%8A%98%E8%85%BE/</link>
+    <description>Recent content in 折腾 on Niall&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 25 May 2024 23:24:47 +0800</lastBuildDate>
+    <atom:link href="http://niallzhou.cfd/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; view 实现探究、 gitea 搭建</title>
+      <link>http://niallzhou.cfd/post/note/whisper-2023-may/</link>
+      <pubDate>Sat, 25 May 2024 15:25:42 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/whisper-2023-may/</guid>
+      <description>Prelude May, she will stay Resting in my arms again &amp;ndash; April Come She Will, Simon &amp;amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气</description>
+    </item>
+    <item>
+      <title>Emacs 折腾插曲：改进 org-download 截图功能</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</link>
+      <pubDate>Thu, 25 Apr 2024 22:37:14 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</guid>
+      <description>如 Emacs 折腾小记（二） 中所说，利用 org-download + irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗</description>
+    </item>
+    <item>
+      <title>Emacs 折腾小记（二）</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng_2/</link>
+      <pubDate>Sat, 20 Apr 2024 22:30:00 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng_2/</guid>
+      <description>最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只</description>
+    </item>
+    <item>
+      <title>Emacs 折腾小记</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng/</link>
+      <pubDate>Sat, 06 Apr 2024 15:01:33 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng/</guid>
+      <description>趁着放假又好好折腾了一把 emacs ，添加了一些有用的小功能。 1. “随着日出日落”——白天黑夜不同主题 Emacs 几乎伴随着我的整个生产过程，这就意味着无论白天光</description>
+    </item>
+    <item>
+      <title>屏蔽 Windows 下 Ctrl&#43;Space 快捷键</title>
+      <link>http://niallzhou.cfd/post/tricks/disable_ctrl_space/</link>
+      <pubDate>Wed, 27 Mar 2024 14:04:54 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/disable_ctrl_space/</guid>
+      <description>作为一个 Emacser ，我会把包括 VSCode、 Clion 等开发工具的快捷键都设置成类 Emacs 的。其中有一个常用的快捷键 C-SPC ，用来设置选中区域的锚点。但这个快捷键被 Windows 自</description>
+    </item>
+    <item>
+      <title>Hello Fedora</title>
+      <link>http://niallzhou.cfd/post/note/hello-fedora/</link>
+      <pubDate>Sun, 24 Mar 2024 13:31:39 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/hello-fedora/</guid>
+      <description>做了什么 整了个阿里云最便宜的服务器用来学Unix网络编程，系统是 Fedora39。 想着顺便搭一个博客把之前的内容精炼一下搬过来，但中间折腾了</description>
+    </item>
+  </channel>
+</rss>

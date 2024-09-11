@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Niall&#39;s Blog</title>
+    <link>http://niallzhou.cfd/post/</link>
+    <description>Recent content in Posts on Niall&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Sep 2024 13:39:19 +0800</lastBuildDate>
+    <atom:link href="http://niallzhou.cfd/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试用知识点梳理</title>
+      <link>http://niallzhou.cfd/post/articles/all-for-hiring/</link>
+      <pubDate>Fri, 06 Sep 2024 10:53:13 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/articles/all-for-hiring/</guid>
+      <description>写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已</description>
+    </item>
+    <item>
+      <title>C&#43;&#43; view 实现探究、 gitea 搭建</title>
+      <link>http://niallzhou.cfd/post/note/whisper-2023-may/</link>
+      <pubDate>Sat, 25 May 2024 15:25:42 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/whisper-2023-may/</guid>
+      <description>Prelude May, she will stay Resting in my arms again &amp;ndash; April Come She Will, Simon &amp;amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气</description>
+    </item>
+    <item>
+      <title>使用 OpenMP 做数组聚合（ Reduce ）</title>
+      <link>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</link>
+      <pubDate>Sun, 19 May 2024 19:25:50 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</guid>
+      <description>最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行</description>
+    </item>
+    <item>
+      <title>算法笔记其一：树（更新中）</title>
+      <link>http://niallzhou.cfd/post/note/algorithm-note-1-tree/</link>
+      <pubDate>Fri, 10 May 2024 23:13:46 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/algorithm-note-1-tree/</guid>
+      <description>知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有</description>
+    </item>
+    <item>
+      <title>Emacs 折腾插曲：改进 org-download 截图功能</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</link>
+      <pubDate>Thu, 25 Apr 2024 22:37:14 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/</guid>
+      <description>如 Emacs 折腾小记（二） 中所说，利用 org-download + irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗</description>
+    </item>
+    <item>
+      <title>Emacs 折腾小记（二）</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng_2/</link>
+      <pubDate>Sat, 20 Apr 2024 22:30:00 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng_2/</guid>
+      <description>最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只</description>
+    </item>
+    <item>
+      <title>Emacs 折腾小记</title>
+      <link>http://niallzhou.cfd/post/tricks/emacs_zheteng/</link>
+      <pubDate>Sat, 06 Apr 2024 15:01:33 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/emacs_zheteng/</guid>
+      <description>趁着放假又好好折腾了一把 emacs ，添加了一些有用的小功能。 1. “随着日出日落”——白天黑夜不同主题 Emacs 几乎伴随着我的整个生产过程，这就意味着无论白天光</description>
+    </item>
+    <item>
+      <title>群山，夜泳，关于杭州的记忆</title>
+      <link>http://niallzhou.cfd/post/articles/memory_about_hangzhou/</link>
+      <pubDate>Sun, 31 Mar 2024 21:37:54 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/articles/memory_about_hangzhou/</guid>
+      <description>山巨大、安静、吸收着。你可以将你的心灵抛给一座山，山会保存它，将它折叠起来，不会将它掷回，如某些溪流那样。溪流就是世界，具有世界一切的刺激和</description>
+    </item>
+    <item>
+      <title>屏蔽 Windows 下 Ctrl&#43;Space 快捷键</title>
+      <link>http://niallzhou.cfd/post/tricks/disable_ctrl_space/</link>
+      <pubDate>Wed, 27 Mar 2024 14:04:54 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/tricks/disable_ctrl_space/</guid>
+      <description>作为一个 Emacser ，我会把包括 VSCode、 Clion 等开发工具的快捷键都设置成类 Emacs 的。其中有一个常用的快捷键 C-SPC ，用来设置选中区域的锚点。但这个快捷键被 Windows 自</description>
+    </item>
+    <item>
+      <title>Hello Fedora</title>
+      <link>http://niallzhou.cfd/post/note/hello-fedora/</link>
+      <pubDate>Sun, 24 Mar 2024 13:31:39 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/hello-fedora/</guid>
+      <description>做了什么 整了个阿里云最便宜的服务器用来学Unix网络编程，系统是 Fedora39。 想着顺便搭一个博客把之前的内容精炼一下搬过来，但中间折腾了</description>
+    </item>
+    <item>
+      <title>Dans Le Restaurant (节选分析)</title>
+      <link>http://niallzhou.cfd/post/reading/dans-le-restaurant/</link>
+      <pubDate>Thu, 17 Nov 2022 00:02:56 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/reading/dans-le-restaurant/</guid>
+      <description>节选原诗1-15行 原文 Le garçon délabré qui n&amp;rsquo;a rien à faire Que de se gratter les doigts et se pencher sur mon épaule: “Dans mon pays il fera temps pluvieux, Du vent, du grand soleil, et de la pluie; C&amp;rsquo;est ce</description>
+    </item>
+    <item>
+      <title>像一块滚石</title>
+      <link>http://niallzhou.cfd/post/articles/self-bio-false/</link>
+      <pubDate>Sat, 27 Aug 2022 16:15:54 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/articles/self-bio-false/</guid>
+      <description>契机 无聊的契机，学院要求新生写一篇自传性质的文章上交，给的内容提纲无非自我介绍、目标、计划之类，实在老套。遂决定写一篇沾点边的随笔，主要谈石</description>
+    </item>
+    <item>
+      <title>“我时常感到生活在大海上……”</title>
+      <link>http://niallzhou.cfd/post/articles/summer-220715/</link>
+      <pubDate>Fri, 15 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>http://niallzhou.cfd/post/articles/summer-220715/</guid>
+      <description>注：此文原为notion上发布 J’ai toujours eu l’impression de vivre en haute mer, menacé, au cœur d’un bonheur royal. —Albert Camus L’Été 翻</description>
+    </item>
+  </channel>
+</rss>

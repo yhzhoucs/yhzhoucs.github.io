@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openmp on Niall&#39;s Blog</title>
+    <link>http://niallzhou.cfd/tags/openmp/</link>
+    <description>Recent content in Openmp on Niall&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 May 2024 21:44:28 +0800</lastBuildDate>
+    <atom:link href="http://niallzhou.cfd/tags/openmp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 OpenMP 做数组聚合（ Reduce ）</title>
+      <link>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</link>
+      <pubDate>Sun, 19 May 2024 19:25:50 +0800</pubDate>
+      <guid>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</guid>
+      <description>最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行</description>
+    </item>
+  </channel>
+</rss>

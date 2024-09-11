@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>C&#43;&#43; view 实现探究、 gitea 搭建 - Niall&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Niall Zhou" /><meta name="description" content="Prelude May, she will stay Resting in my arms again &amp;ndash; April Come She Will, Simon &amp;amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.126.3 with theme even" />
+
+
+<link rel="canonical" href="http://niallzhou.cfd/post/note/whisper-2023-may/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:url" content="http://niallzhou.cfd/post/note/whisper-2023-may/">
+  <meta property="og:site_name" content="Niall&#39;s Blog">
+  <meta property="og:title" content="C&#43;&#43; view 实现探究、 gitea 搭建">
+  <meta property="og:description" content="Prelude May, she will stay Resting in my arms again – April Come She Will, Simon &amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-05-25T15:25:42+08:00">
+    <meta property="article:modified_time" content="2024-05-25T23:24:47+08:00">
+    <meta property="article:tag" content="折腾">
+    <meta property="article:tag" content="Cpp">
+
+  <meta itemprop="name" content="C&#43;&#43; view 实现探究、 gitea 搭建">
+  <meta itemprop="description" content="Prelude May, she will stay Resting in my arms again – April Come She Will, Simon &amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气">
+  <meta itemprop="datePublished" content="2024-05-25T15:25:42+08:00">
+  <meta itemprop="dateModified" content="2024-05-25T23:24:47+08:00">
+  <meta itemprop="wordCount" content="1776">
+  <meta itemprop="keywords" content="折腾,Cpp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="C&#43;&#43; view 实现探究、 gitea 搭建">
+  <meta name="twitter:description" content="Prelude May, she will stay Resting in my arms again – April Come She Will, Simon &amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Niall&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Niall&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">C&#43;&#43; view 实现探究、 gitea 搭建</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-05-25 15:25 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 1776 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prelude">Prelude</a></li>
+        <li><a href="#c-plus-plus-range-库中-view-的实现">C++ range 库中 view 的实现</a></li>
+        <li><a href="#用-gitea-搭建自己的代码托管服务器">用 gitea 搭建自己的代码托管服务器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <style>
+.verse {
+  border-left: solid black;
+  padding-left: 1em;
+}
+
+.midnight-blue {
+  color: #191970;
+  font-weight: 600;
+}
+.forest-green {
+  color: #228B22;
+  font-weight: 600;
+}
+.wild-strawberry {
+  color: #FF43A4;
+  font-weight: 600;
+}
+</style>
+<h2 id="prelude">Prelude</h2>
+<div class="verse">
+<p>May, she will stay<br />
+Resting in my arms again<br />
+&ndash; April Come She Will, Simon &amp; Garfunkel, Sounds of Silence<br /></p>
+</div>
+<p>不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气下躲在室内做点喜欢的事情是很不错的。</p>
+<p>虽然引用了美国民歌两兄弟的歌曲，但这篇主要还是关于技术和折腾。</p>
+<h2 id="c-plus-plus-range-库中-view-的实现">C++ range 库中 view 的实现</h2>
+<p>一直好奇 range 库中的 view 是怎么在不保存容器的前提下对容器进行操作的，当然很容易推测出可能存了容器的迭代器或者引用、指针等等，但还是不免对代码上的实现产生疑问。本来以为花 10 分钟看一下 view 的代码实现就能知道，因为开始走错了方向，竟然断断续续地研究了 2 天！</p>
+<p>我们拿 take_view 的代码举例。创建一个 take_view 的方法有两种：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法一：采用管道符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">vec_take_3</span> <span class="o">=</span> <span class="n">vec</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 方法二：调用函数接口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">vec_take_3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">take</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 下面的方法也可以，但不推荐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">auto</span> <span class="n">vec_take_3</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">take_view</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>至于最后的方法为什么不推荐，可以参考 Barry 大佬的博客
+<a href="https://brevzin.github.io/c++/2023/03/14/prefer-views-meow/">prefer views::meow</a> 里面讲得很清楚。</p>
+<p>现在想知道的是，vec_take_3 这个对象是怎么保存 vec 的。直接上 <a href="https://github.com/ericniebler/range-v3">range-v3</a>
+的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rng</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">take_view</span> <span class="o">:</span> <span class="n">view_interface</span><span class="o">&lt;</span><span class="n">take_view</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">finite</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Rng</span> <span class="n">base</span> <span class="o">=</span> <span class="n">Rng</span><span class="p">();</span> <span class="c1">// 这是内部保存的容器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 现在关键就在于 Rng 是什么类型的
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 省略，直接看构造函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">constexpr</span> <span class="n">take_view</span><span class="p">(</span><span class="n">Rng</span> <span class="n">base</span><span class="p">,</span> <span class="n">range_difference_t</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;</span> <span class="n">cnt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">:</span> <span class="n">base_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">base</span><span class="p">))</span> <span class="p">,</span><span class="n">count_</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>乍一看这个实现有非常大的迷惑性，直接调用这个构造函数不是直接将
+std::vector 复制了一遍（因为这是 copy 传值），然后再用
+std::move 把它转移到内部的 base 成员上吗？而且这里的 Rng 推导出来也是
+std::vector ，并不是我们预期的引用或指针。</p>
+<p>因此，我就是在这上面卡了挺久。另外，我当时并没有直接看 range-v3 库的实现，而是看的微软官方更具有迷惑性的实现，这里不再详述。</p>
+<p>原来破解之道不在类的定义里面，而在外面的简单两句：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rng</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">take_view</span><span class="p">(</span><span class="n">Rng</span> <span class="o">&amp;&amp;</span><span class="p">,</span> <span class="n">range_difference_t</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">-&gt;</span> <span class="n">take_view</span><span class="o">&lt;</span><span class="n">views</span><span class="o">::</span><span class="n">all_t</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个叫 deduction guide ，是 C++17 里引入的特性，这两句的意思是无论来的是什么类型，编译器都应该把 take_view 的类型推导为 views::all_t&lt;Rng&gt; 类型。当传入的是 std::vector&lt;int&gt; 类型名时，这里的 Rng 被推导为
+std::vector&lt;int&gt;&amp; 类型。于是 take_view 里的 Rng 实际就是 all_t 类型，而这个 all_t 也是一个类型别名，它像选择器一样选择一个合适的 view 类型，定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Rng</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="n">all_t</span> <span class="o">=</span> <span class="k">decltype</span><span class="p">(</span><span class="n">all</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;</span><span class="p">()));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>all_t 类型是把 Rng 的实例传给仿函数 all 后的返回值决定的。而当 Rng 为
+std::vector&lt;int&gt;&amp; 时，all 中的调用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="p">(</span><span class="k">typename</span> <span class="n">T</span><span class="p">)(</span>
+</span></span><span class="line"><span class="cl">    <span class="k">requires</span> <span class="n">range</span><span class="o">&lt;</span><span class="n">T</span> <span class="o">&amp;&gt;</span> <span class="n">AND</span> <span class="n">viewable_range</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="k">auto</span> <span class="k">operator</span><span class="p">()(</span><span class="n">T</span> <span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">)</span> <span class="k">const</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">all_fn</span><span class="o">::</span><span class="n">from_range_</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span> <span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">meta</span><span class="o">::</span><span class="n">bool_</span><span class="o">&lt;</span><span class="n">view_</span><span class="o">&lt;</span><span class="n">uncvref_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">std</span><span class="o">::</span><span class="n">is_lvalue_reference</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span>
+</span></span><span class="line"><span class="cl">                               <span class="n">meta</span><span class="o">::</span><span class="n">bool_</span><span class="o">&lt;</span><span class="n">borrowed_range</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">{});</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>from_range_ 中的参数被推导为 (t, false_type, true_type, true_type) ，于是编译器决定调用的重载形式为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">from_range_</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">false_type</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="n">detail</span><span class="o">::</span><span class="n">ignore_t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ranges</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">ref</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终，我们知道这里 all_t 是 ref_view&lt;std::vector&lt;int&gt;&gt; 类型的别名。因此， take_view 的构造函数就变成了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="nf">take_view</span><span class="p">(</span><span class="n">ref_view</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">base</span><span class="p">,</span> <span class="n">range_difference_t</span><span class="o">&lt;</span><span class="n">Rng</span><span class="o">&gt;</span> <span class="n">cnt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">:</span> <span class="n">base_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">base</span><span class="p">))</span> <span class="p">,</span><span class="n">count_</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span> <span class="p">{}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里用了隐式的构造，调用 ref_view 的构造函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">constexpr</span> <span class="nf">ref_view</span><span class="p">(</span><span class="n">Rng</span> <span class="o">&amp;</span> <span class="n">rng</span><span class="p">)</span> <span class="k">noexcept</span>
+</span></span><span class="line"><span class="cl">  <span class="o">:</span> <span class="n">rng_</span><span class="p">(</span><span class="n">detail</span><span class="o">::</span><span class="n">addressof</span><span class="p">(</span><span class="n">rng</span><span class="p">))</span> <span class="p">{}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中，Rng 为 std::vector&lt;int&gt; ，很简单这是只是对 rng 引用的 vec 取了一个地址，再把地址保存在 ref_view 内部的指针 rng_ 上：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Rng</span> <span class="o">*</span> <span class="n">rng_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>到这里真相大白， <strong>原来 take_view 内部的那个 base 在当前的编译器推导下就是一个 ref_view</strong> ，这也不难理解为什么 take_view 的构造函数用拷贝传值，然后再 move 到内部的成员上了。而这一切的误会都是因为我没看见 take_view
+定义后面的 deduction guide 。之后还是要多加小心。</p>
+<h2 id="用-gitea-搭建自己的代码托管服务器">用 gitea 搭建自己的代码托管服务器</h2>
+<p>最近因为有一些 host 私有代码的需要，所以搭了个自己的代码托管服务器。选用的框架是开源的 <a href="https://github.com/go-gitea/gitea">gitea</a> ，足够轻量级，而且搭建起来非常方便，个人和小型团队完全够用了，在此感谢 gitea 的作者。我喜欢它的名字和 Logo ，一杯茶。写代码就应该是这样的心态，手上端着一杯茶，细细品味和琢磨。直接参考官方文档花1个小时就能搭建完成，我用的是 MariaDB 直接放在服务器上与 gitea
+一同运行。</p>
+<p>想不到最后居然是栽在了 Windows 上，不，应该是 Visual Studio 。事情是我把 gitea 搭建好添加好 ssh key 准备往上 push/pull 代码的时候，在
+windows 上死活出现 Permission Denied 错误，折腾了一会儿发现使用 Git
+Bash 就不会有这种错误，通过 <code>ssh -vT git@ip</code> 命令发现是 OpenSSH 版本的问题， Git 因为使用的是自带的 OpenSSH 所以没有出来这种问题，可以正常
+push/pull 。</p>
+<p>于是，我去 windows openssh 的仓库下载了最新的 <a href="https://github.com/PowerShell/Win32-OpenSSH/releases">win32 openssh</a> 安装好后，在 powershell/cmd 里能正常 push/pull 代码了。到这里我以为问题已经解决了，但在 Visual Studio 里修改完代码准备 push 到 gitea 服务器的时候发现这里还是 push 不了，打开输出窗口一看仍然是之前的那个 Permission Denied
+错误。一开始我怀疑是 Visual Studio 自带的 Git 版本有问题，进【工具-选项-项目和解决方案-Web包管理-外部Web工具】里找到它自带 Git 的目录，显示为
+$(DevEnvDir)\CommonExtensions\Microsoft\TeamFoundation\Team
+Explorer\Git\cmd 。去 Git 官网下载最新的 Portable 压缩包直接把 Git 文件夹整体替换掉了。这时，自带的 Git 就是最新版的。然后再次使用 Visual
+Studio 进行仓库的 push ，发现问题还是没解决。</p>
+<p>再折腾了很久，想着是不是 Visual Studio 自带的 Git 用的不是系统的
+OpenSSH 而是其他什么地方的 ssh 。于是再上网查询，通过直接在 .gitconfig
+文件中指定 ssh 的位置让 Git 统一使用系统的 OpenSSH ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[core]
+</span></span><span class="line"><span class="cl">        sshCommand = &#39;&#34;C:\\Program Files\\OpenSSH\\ssh.exe&#34;&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里做了之后，终于问题得到了解决。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Niall Zhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2024-05-25 23:24
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8A%98%E8%85%BE/">折腾</a>
+          <a href="/tags/cpp/">cpp</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/articles/all-for-hiring/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">面试用知识点梳理</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/note/cpp-openmp-array-reduce/">
+            <span class="next-text nav-default">使用 OpenMP 做数组聚合（ Reduce ）</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:niazhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yhzhoucs" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

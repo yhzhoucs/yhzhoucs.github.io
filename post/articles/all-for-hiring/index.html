@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>面试用知识点梳理 - Niall&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Niall Zhou" /><meta name="description" content="写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.126.3 with theme even" />
+
+
+<link rel="canonical" href="http://niallzhou.cfd/post/articles/all-for-hiring/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:url" content="http://niallzhou.cfd/post/articles/all-for-hiring/">
+  <meta property="og:site_name" content="Niall&#39;s Blog">
+  <meta property="og:title" content="面试用知识点梳理">
+  <meta property="og:description" content="写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-09-06T10:53:13+08:00">
+    <meta property="article:modified_time" content="2024-09-06T13:39:19+08:00">
+    <meta property="article:tag" content="Cpp">
+    <meta property="article:tag" content="算法">
+
+  <meta itemprop="name" content="面试用知识点梳理">
+  <meta itemprop="description" content="写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已">
+  <meta itemprop="datePublished" content="2024-09-06T10:53:13+08:00">
+  <meta itemprop="dateModified" content="2024-09-06T13:39:19+08:00">
+  <meta itemprop="wordCount" content="14622">
+  <meta itemprop="keywords" content="Cpp,算法">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="面试用知识点梳理">
+  <meta name="twitter:description" content="写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Niall&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Niall&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">面试用知识点梳理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-09-06 10:53 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 14622 字 </span>
+          <span class="more-meta"> 预计阅读 30 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#写在前面">写在前面</a></li>
+        <li><a href="#操作系统">操作系统</a></li>
+        <li><a href="#数据结构">数据结构</a>
+          <ul>
+            <li><a href="#链表">链表</a></li>
+            <li><a href="#哈希表">哈希表</a></li>
+            <li><a href="#树">树</a></li>
+            <li><a href="#排序">排序</a></li>
+          </ul>
+        </li>
+        <li><a href="#c-plus-plus">C++</a>
+          <ul>
+            <li><a href="#编译与内存管理">编译与内存管理</a></li>
+            <li><a href="#语言">语言</a></li>
+            <li><a href="#面向对象">面向对象</a></li>
+            <li><a href="#设计模式">设计模式</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据库">数据库</a>
+          <ul>
+            <li><a href="#基本概念">基本概念</a></li>
+            <li><a href="#索引">索引</a></li>
+            <li><a href="#事务">事务</a></li>
+            <li><a href="#锁">锁</a></li>
+            <li><a href="#sql-语句">SQL 语句</a></li>
+          </ul>
+        </li>
+        <li><a href="#计算机网络">计算机网络</a>
+          <ul>
+            <li><a href="#基础概念">基础概念</a></li>
+            <li><a href="#http">HTTP</a></li>
+            <li><a href="#tcp">TCP</a></li>
+          </ul>
+        </li>
+        <li><a href="#linux-c-c-plus-plus-网络编程">Linux, C/C++ 网络编程</a>
+          <ul>
+            <li><a href="#常用-linux-命令">常用 Linux 命令</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="写在前面">写在前面</h2>
+<p>这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用
+Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已经比较全面。</p>
+<p>本文所有资料来源于网络与书籍。特别感谢：</p>
+<ol>
+<li><a href="https://www.xiaolincoding.com">小林的图解系列</a>（这个讲得非常细，理解起来也很容易）</li>
+<li>UNP &amp; APUE</li>
+<li>无数无私奉献的博客作者</li>
+</ol>
+<h2 id="操作系统">操作系统</h2>
+<p>缓存</p>
+<ul>
+<li>每个 CPU 核心都有自己的 L1 级缓存（指令缓存、数据缓存）和 L2 级缓存</li>
+<li>L3 级缓存为多个 CPU 核心共享</li>
+<li>cache 与内存的映射
+<ol>
+<li>直接映射</li>
+<li>全相连</li>
+<li>组相连</li>
+</ol>
+</li>
+<li>cache 一致性
+<ul>
+<li>写直达与写回</li>
+<li>写分配与非写分配：写分配-写回、非写分配-写直达</li>
+<li>总线嗅控：当一个核心更新自己的 cache ，总线把这个更新广播到其他核心的 cahce 中</li>
+<li>MESI 协议四个状态（ Modified/Exclusive/Shared/Invalidated ）</li>
+</ul>
+</li>
+</ul>
+<p>MESI 协议状态转化图</p>
+<figure><img src="/images/all-for-hiring_1.png">
+</figure>
+
+<p>线程与进程区别</p>
+<ul>
+<li>进程是资源分配的单位，线程是 CPU 调度的单位</li>
+<li>进程拥有完整的资源，线程只独享必不可少的资源</li>
+<li>线程切换上下文的开销更小
+<ol>
+<li>创建开销小，共享进程的资源不必重新分配</li>
+<li>终止快，要释放的资源少</li>
+<li>同一进程内的线程通信开销少，不需要经过内核</li>
+</ol>
+</li>
+</ul>
+<p>线程</p>
+<ul>
+<li>用户线程</li>
+<li>内核线程
+<ul>
+<li>轻量级进程：Linux 下实现的内核线程， Linux 中没有线程的概念</li>
+</ul>
+</li>
+<li>调度
+<ol>
+<li>先来先服务 FCFS</li>
+<li>最短作业优先 SJF</li>
+<li>高响应比 HRRN
+<ul>
+<li>（等待时间 + 要求服务时间） ÷ 要求服务时间</li>
+</ul>
+</li>
+<li>时间片轮转 RR</li>
+<li>最高优先级 HPF
+<ul>
+<li>静态优先级、动态优化级</li>
+<li>抢占式、非抢占式</li>
+</ul>
+</li>
+<li>多级反馈队列</li>
+</ol>
+</li>
+</ul>
+<p>进程通信的方式</p>
+<ul>
+<li>管道：本质是内核中的一段缓存
+<ul>
+<li>匿名管道：父子进程</li>
+<li>命名管道：任意两个进程，因为命名管道提前创建了文件</li>
+<li>低效、有读就要有写</li>
+</ul>
+</li>
+<li>消息队列：本质是保存在内核中的消息链表
+<ul>
+<li>不适合大数据的传输，因为它消息的大小有上界</li>
+<li>数据传输过程涉及用户空间与内核空间之间的数据拷贝</li>
+</ul>
+</li>
+<li>共享内存</li>
+<li>信号量</li>
+<li>信号</li>
+<li>套接字（ Socket ）</li>
+</ul>
+<p>两种最基本的锁</p>
+<ul>
+<li>自旋锁：加锁失败则忙等待（用户态完成、开销小、但会一直占用 CPU 资源；非抢占的单 CPU 无法正常运行）</li>
+<li>互斥锁：加锁失败则释放 CPU 并阻塞（涉及内核操作，上下文切换开销大）</li>
+</ul>
+<p>其他锁的分类</p>
+<ul>
+<li>读优先锁</li>
+<li>写优先锁</li>
+</ul>
+<p>死锁产生的条件</p>
+<ol>
+<li>互斥</li>
+<li>持有并等待</li>
+<li>不可剥夺</li>
+<li>环路等待</li>
+</ol>
+<p>避免死锁：资源有序分配</p>
+<p>页面置换算法</p>
+<ol>
+<li>最佳页面置换 OPT ：置换未来最长时间不访问的页面</li>
+<li>先进先出 FIFO ：置换内存滞留时间最长的页面</li>
+<li>最近最少使用 LRU ：置换最长时间没有被访问的页面</li>
+<li>时钟页面转换 CLOCK ：两个状态位，如果是 1 把它变成 0 后再寻找下一个；如果是 0 则置换这个页面</li>
+<li>最不常有 LFU ：置换访问次数最少的页面</li>
+</ol>
+<p>磁盘调度算法</p>
+<ol>
+<li>先来先服务 FCFS</li>
+<li>最短寻道 SSF</li>
+<li>扫描 Scan/C-Scan</li>
+<li>循环扫描 Look/C-Look</li>
+</ol>
+<p>文件存储</p>
+<ol>
+<li>连续空间存放
+<ul>
+<li>（起始块位置，长度）</li>
+<li>缺点：磁盘空间碎片；文件长度不易扩展</li>
+</ul>
+</li>
+<li>非连续空间存放
+<ul>
+<li>链表
+<ul>
+<li>隐式链表：只能顺序访问，稳定性差</li>
+<li>显式链表：文件分配表，不适用于大磁盘</li>
+</ul>
+</li>
+<li>索引
+<ul>
+<li>链式索引：一个索引块存有一个指向下一个索引块的指针</li>
+<li>多级索引：上级的索引块存的是下级所有索引块的地址</li>
+<li>索引方式有利于文件创建、体积增大缩小；索引方式不存在碎片问题；索引支持顺序和随机的读写</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Linux 文件系统的实现
+<ul>
+<li>前 10 个指针直接指向数据块</li>
+<li>第 11 个指针指向索引块</li>
+<li>第 12 个指针指向二级索引块</li>
+<li>第 13 个指针指向三级索引块</li>
+</ul>
+</li>
+</ol>
+<p>空闲块管理</p>
+<ol>
+<li>空闲表法</li>
+<li>空闲链表法</li>
+<li>位图法</li>
+</ol>
+<p>文件 I/O 方式</p>
+<ul>
+<li>缓冲 I/O ：由标准库缓存，适当的时候再由标准库决定是否使用系统调用</li>
+<li>非缓冲 I/O ：直接用系统调用访问文件</li>
+<li>直接 I/O ：由 <code>O_DIRECT</code> 关键字指定，内核缓存与用户程序间无数据复制</li>
+<li>非直接 I/O ：经由内核缓存，由操作系统决定何时写入文件系统</li>
+<li>阻塞 I/O ： 读写时阻塞，直到操作完成</li>
+<li>非阻塞 I/O ：读写时不阻塞，需要不断轮询获取状态</li>
+<li>同步 I/O：分为阻塞 I/O 与非阻塞 I/O</li>
+<li>异步 I/O：读时立即返回，当数据读取完时通知进程处理</li>
+</ul>
+<h2 id="数据结构">数据结构</h2>
+<h3 id="链表">链表</h3>
+<p>单链表双链表循环链表</p>
+<p>常考操作：添加、查找、删除</p>
+<p>常用方法：双指针、快慢指针</p>
+<h3 id="哈希表">哈希表</h3>
+<h4 id="定义">定义</h4>
+<p>哈希表是一种存储数据的结构，支持数据的快速存取与查找。</p>
+<p>借助哈希函数将键映射到存储桶地址，如果多个键被映射到了同一个桶中，这时候就称发生了“哈希冲突”。</p>
+<p><strong>负载因子</strong> 或者叫“装填因子”。它的计算方法是：实际利用的桶的个数除以桶的总数。比较合理的负载因子是 0.7 。</p>
+<h4 id="哈希函数的常用构造方法">哈希函数的常用构造方法</h4>
+<ol>
+<li>直接定址法：取关键字或关键字的某个线性函数值作为哈希地址。</li>
+<li>相乘取整法： key * A (0&lt;A&lt;1) 取小数部分乘上 m 后取整</li>
+<li>平方取中法：取平方值的中间几位作为哈希地址</li>
+<li>除留余数法：key MOD p (p&lt;=m)</li>
+<li>伪随机数法</li>
+<li>数字分析法</li>
+<li>分段叠加法</li>
+</ol>
+<h4 id="哈希冲突">哈希冲突</h4>
+<p>解决哈希冲突的方法：</p>
+<ul>
+<li>开放定址法
+<ul>
+<li>线性试探法：经过哈希函数映射后发现有桶冲突，就直接向下继续寻找空位，直到找到空位或所有的空间已满。查找的时候先通过哈希函数找到桶的位置，如果不匹配则继续向下寻找，到了末尾就从头部开始继续寻找。删除的时候不直接将元素删除，而是将元素位置标记为已删除，这样之后的插入操作就能在有删除标记的位置上写入新元素。</li>
+<li>二次探测法</li>
+<li>双重哈希法：发生冲突的时候使用另一个哈希函数进行再哈希。</li>
+</ul>
+</li>
+<li>链地址法：产生冲突的键串联成一个链表。查找时需要线性查找。</li>
+<li>公共溢出区法：建立另一个哈希表作为公共溢出区，将发生冲突的键放入一个公共溢出区。查找的时候要在公共溢出区里进行线性查找。</li>
+</ul>
+<h3 id="树">树</h3>
+<p>二叉树的性质</p>
+<ol>
+<li>第 \( i \) 层结点数最多为 \( 2^{i-1} \) 。</li>
+<li>高度为 k 的二叉树结点总数最多为 \( 2^k - 1 \)</li>
+<li>对任意非空二叉树 T ，如果叶结节的个数为 n0 ，度为 2 的结点个数为 n1
+，那么有 \( n_0 = n_2 + 1 \) 。</li>
+</ol>
+<p>满二叉树：深度为 k 且有 \( n_0 = n_2 + 1 \) 个结点的二叉树</p>
+<p>完全二叉树：1~n的所有结点与满二叉树上的位置一致。n 个结点的完全二叉树深度为 \( log_2n + 1 \)</p>
+<p>堆是完全二叉树。最大堆、最小堆。</p>
+<p>哈夫曼树。带权路径长度：权值乘上路径长度的总和。</p>
+<p>二叉排序树（左 &lt; 根 &lt; 右）</p>
+<ul>
+<li>左子树所有结点值均小于根结点的值</li>
+<li>右子树所有结点值均大于根结点的值</li>
+<li>左右子树也分别为二叉排序树</li>
+<li>没有键值相等的结点</li>
+</ul>
+<p>平衡二叉树（ AVL 树）</p>
+<ul>
+<li>左子树和右子树深度之差绝对值不超过1。</li>
+<li>左子树和右子树也是平衡二叉树。</li>
+</ul>
+<p>结点的平衡因子=右子树高度-左子树高度</p>
+<p>AVL 树是一棵绝对平衡的二叉搜索树</p>
+<ul>
+<li>查询时的效率高，为 \( log_2N \)</li>
+<li>修改时的效率很低，插入时为了维持绝对平衡旋转的次数比较多；删除时有可能要一直旋转持续到根的位置</li>
+</ul>
+<p>结论：如果数据结构不会经常修改，以查询为主，那了比较适合使用 AVL 树。</p>
+<p>二叉查找树为什么不适用于磁盘？</p>
+<ul>
+<li>树的深度高（二叉），搜索时 I/O 的次数多，查询效率低</li>
+<li>平衡二叉树的旋转操作太多，同样要消耗大量 I/O</li>
+</ul>
+<p>B树</p>
+<ul>
+<li>m 阶指的是 B 树中一个节点的子结点数目的最大值</li>
+<li>每个结点子结点的数量最多 m 个</li>
+<li>每个非叶子结点（除了根）具有至少 \( \lceil \frac{m}{2} \rceil \) 子结点</li>
+<li>每个结点都包含 k 个元素（关键字），其中 \( \lfloor \frac{m}{2} \rfloor  \le k &lt; m \)</li>
+<li>如果根不是叶结点，则根节点至少有两个子结点</li>
+<li>具有 k 个子结点的非叶子结点包含 k-1 个键</li>
+<li>叶子都出现在同一层，没有任何信息</li>
+</ul>
+<p>一棵含有N个总关键字数的 m 阶的 B 树的最大高度是 \( log_{\frac{m}{2}}{\frac{N+1}{2}}+1 \)</p>
+<p>B+树</p>
+<ul>
+<li>有 m 个子树的中间结点包含有 m 个元素</li>
+<li>叶子结点包含了全部关键字的信息以及指向这些关键字记录的指针</li>
+<li>叶子结点以从小到大的顺序 <strong>链接</strong></li>
+</ul>
+<p>B+树比B树更适合数据库索引</p>
+<ol>
+<li>B+树的磁盘读写代价更低：只存指向记录的指针使得一个磁盘块内能存更多的索引，这意味着树的高度更低</li>
+<li>B+树查询的效率更稳定：非叶子结点只存索引不存记录，每次查询的
+I/O 开销相当</li>
+<li>B+树便于范围查询（最重要）：叶子结节之间有链接，可以直接顺序遍历。范围查询的复杂度为 \( O(log_mN+k) \) 其中 k 为范围的大小。</li>
+</ol>
+<p>B树与B+树的对比</p>
+<figure><img src="/images/all-for-hiring_2.png">
+</figure>
+
+<h3 id="排序">排序</h3>
+<ul>
+<li>稳定排序：冒泡排序、插入排序、归并排序</li>
+<li>不稳定排序：堆排序、快速排序、选择排序、希尔排序</li>
+</ul>
+<h2 id="c-plus-plus">C++</h2>
+<h3 id="编译与内存管理">编译与内存管理</h3>
+<p>堆与栈的优缺点</p>
+<p>栈</p>
+<ol>
+<li>栈中存放的变量在编译时由编译器分配空间</li>
+<li>栈空间自动回收（函数调用返回）</li>
+<li>栈在内存中是 <strong>连续</strong> 的空间</li>
+<li>栈空间是线程私有的</li>
+<li>栈空间申请效率高</li>
+</ol>
+<p>堆</p>
+<ol>
+<li>堆中存放的变量在程序运行时由操作系统或者内存管理模块来分配</li>
+<li>堆空间要手动释放，否则会一直占用直到程序退出</li>
+<li>堆在内存中是 <strong>不连续</strong> 的（空闲链表分配）</li>
+<li>堆中的内存不是线程安全的，同一个进程的堆内存可由多个线程共享</li>
+<li>堆空间申请效率低</li>
+</ol>
+<p>按作用域划分变量类型：</p>
+<ul>
+<li>全局变量：全局作用域，已初始化在 data 段，未初始化在 bss 段</li>
+<li>静态全局变量：全局作用域，已初始化在 data 段，未初始化在 bss 段</li>
+<li>局部变量：局部作用域， stack 段或 heap 段</li>
+<li>静态局部变量：局部作用域， stack 段或 heap 段</li>
+</ul>
+<p>智能指针</p>
+<ul>
+<li>std::unique_ptr</li>
+<li>std::shared_ptr</li>
+<li>std::weak_ptr 指向 shared_ptr 指向的资源，不会造成 shared_ptr 引用数加 1 （但 weak_count 会加 1 ）【补充： std::weak_ptr 在实现观察者模式的时候非常有用，被观察对象只持有观察者的 weak-pointer ，不对观察者的生命周期负责，在通知观察者的时候先判断这个观察者是否存在】</li>
+</ul>
+<p>直接使用 shared_ptr 的构造函数会导致在堆上进行两次内存分配，第一次是
+new 对应的数据区，第二次是 new 数据对应的控制信息。使用 std::make_ptr
+能解决这个问题，它只分配一次，缺点是不能自定义构造器。</p>
+<p>编译过程</p>
+<ol>
+<li>预处理：处理预编译宏 include, ifdef &hellip;, define 等，替换宏</li>
+<li>编译：形成汇编代码 .s</li>
+<li>汇编：汇编代码转化成机器指令 .o</li>
+<li>链接：将引用的其他目标文件合并起来</li>
+</ol>
+<p>链接有两个类型</p>
+<ul>
+<li>静态链接：编译时进行，直接写进可执行文件中。静态链接库 .a</li>
+<li>动态链接：运行时进行，由操作系统完成链接。动态链接库 .so (win .dll)</li>
+</ul>
+<p>字节序</p>
+<ul>
+<li>小端：高字节放在高地址</li>
+<li>大端：高字节放在低地址</li>
+</ul>
+<p>防范内存泄漏</p>
+<ol>
+<li>编码遵循 RAII 原则</li>
+<li>基类的析构函数应定义为虚函数</li>
+<li>使用智能指针</li>
+<li>引入内存检测工具，如 <strong>valgrind</strong> （使用：
+valgrind &ndash;tool=memcheck &ndash;leak-check=full ./demo_executable</li>
+</ol>
+<p><code>#include &lt;&gt;</code> 与 <code>#include &quot;&quot;</code> 的区别在于查找目录的顺序不同：</p>
+<ul>
+<li><code>#include &lt;&gt;</code> 先从编译器指定的搜索目录 /usr/include 中搜索</li>
+<li><code>#include &quot;&quot;</code> 先从源文件所在的目录中进行查找，再到 -I 添加的目录中查找，最后会到 /usr/include 中查找</li>
+</ul>
+<p><code>#include &lt;&gt;</code> 通常用于引入标准库的头文件，而 <code>#include &quot;&quot;</code> 通常用于引入自定义的头文件</p>
+<h3 id="语言">语言</h3>
+<p>auto 在推导的时候会去除引用、顶层的 const 或 volatile 关键字，需要手动添加</p>
+<p>auto 会把数组表达式推导为指针</p>
+<p>auto 与 decltype 区别</p>
+<ul>
+<li>auto 要求变量必需初始化</li>
+<li>decltype 不要求初始化，不对其操作数求值</li>
+</ul>
+<p>decltype(e) 设 T 为 e 的类型</p>
+<p>static 关键字</p>
+<ul>
+<li>普通全局变量在各个源文件中都有效（通过 extern 关键字声明）
+<strong>静态全局变量</strong> 只在其定义的源文件中有效，静态函数也只在其定义的源文件中有效</li>
+<li>局部静态变量生命周期是整个程序运行期间，但它限于函数内部使用</li>
+<li>静态成员变量
+<ol>
+<li>类内进行声明，在类外进行定义和初始化（类外定义和初始化的时候不加
+static 关键字）只能初始化一次，不能在构造函数里初始化</li>
+<li>可以作为成员函数的默认参数，普通成员不行</li>
+<li>类型可以是所属类的类型，普通成员只能是该类类型的指针或引用</li>
+<li>静态成员函数不是调用非静态成员变量或成员函数</li>
+<li>静态成员函数不能被 virtual, const, volatile 修饰</li>
+</ol>
+</li>
+</ul>
+<p>const 关键字</p>
+<ul>
+<li>const 成员变量：不可以在类的声明里初始化，要在构造函数里初始化，这是因为 const 是只对某个具体的对象而言的，不同对象的 const 成员可以不同</li>
+</ul>
+<p>define 与 const 区别</p>
+<ul>
+<li>define 在编译预处理阶段替换，const 在编译阶段确定值</li>
+<li>define 没有数据类型，不会进行类型安全检查</li>
+<li>define 定义的是宏，不占用实际的内存空间，替换后占用的是代码段的空间，
+const 定义的常量占用静态存存储区的只读空间</li>
+<li>define 定义的宏常量不能调试，而 const 定义的常量可以</li>
+<li>define 能接受参数，而 const 不行</li>
+</ul>
+<p>inline 关键字</p>
+<ul>
+<li>类内部定义的函数自动内联</li>
+<li>类外部定义的函数加 inline 关键字来标记它是一个内联函数</li>
+<li>作用：实现类似宏展开的功能，减少函数调用开销</li>
+<li>与宏展开的区别
+<ol>
+<li>inline 是在编译的时候直接嵌入到目标代码中，而宏是在编译预处理阶段替换</li>
+<li>内联函数是真正的函数，可以调试；而宏定义只是文本替换，不能调试</li>
+<li>宏会对表达式参数计算多次</li>
+</ol>
+</li>
+<li>缺点
+<ol>
+<li>消耗额外的寄存器</li>
+<li>二进制可执行文件变大，可能会导致抖动</li>
+<li>降低指令缓存命中率</li>
+<li>修改重编译时的开销很大</li>
+</ol>
+</li>
+</ul>
+<p>new 和 malloc() 的区别</p>
+<ul>
+<li>new 是 C++ 关键字， malloc 是 C 函数</li>
+<li>new 会调用构造函数，malloc 只是分配一块区域</li>
+<li>new 可以指定内存地址（ placement new ）， malloc 只能在堆上分配</li>
+<li>new 返回指定类型的指针， malloc 返回 void *</li>
+<li>new 失败报错， malloc 失败返回 NULL</li>
+<li>new 的大小由编译器计算， malloc 由用户指定</li>
+<li>new 可以重载， malloc 不可以</li>
+<li>malloc 可以用 realloc 更改申请的空间大小， new 不行</li>
+</ul>
+<p>delete 与 free() 的区别</p>
+<ul>
+<li>delete 是操作符，可以重载</li>
+<li>delete 会调用析构函数</li>
+</ul>
+<p>volatile 关键字</p>
+<ul>
+<li>两个作用
+<ol>
+<li>读取变量时，阻止编译器对缓存的优化，每次都从内存中读取</li>
+<li>写入变量时，阻止编译器对指定顺序的优化，不跳过中间的步骤</li>
+</ol>
+</li>
+<li>应用场景：在一个变量可能会被其他程序或操作系统修改时（不受当前程序控制）：中断服务程序中修改供其他程序检测的变量、多任务下各任务共享的标志、存储器映射的硬件寄存器</li>
+</ul>
+<p>extern &ldquo;C&rdquo;</p>
+<ul>
+<li>在 C++ 程序调用 C 模块的时候，按 C 语言的函数命名规则去链接</li>
+<li>由于允许重载，原本 C++ 定义的函数在编译时它的名称被会修改为原名称加上参数类型</li>
+</ul>
+<p>sizeof(1==1)</p>
+<ul>
+<li>C 中返回 4 （没有 bool 型，1==1 是 int 型变量）</li>
+<li>C++ 中返回 1</li>
+</ul>
+<p>指针在64位计算机一个指针占 8 个字节</p>
+<ul>
+<li>野指针：指向不确定的指针，比如定义了没有初始化</li>
+<li>悬空指针：指针指向的内存已被释放（避免：释放后赋值 nullptr ）</li>
+</ul>
+<p>指针和引用的区别：</p>
+<ol>
+<li>指针是一个变量，保存内存地址；引用是别名，对编译来说两者相似，但编译器会自动对引用进行寻址和解引用</li>
+<li>指针指向的内存空间地址可以改变，引用一旦绑定就不能改变</li>
+<li>指针占有内存空间，引用不占内存空间（编译器实现时可能使用指针实现）</li>
+<li>指针可以直接悬空，引用初始化时必须绑定对象</li>
+<li>指针可以有多级，引用只能是一级（没有引用的引用）</li>
+</ol>
+<p>迭代器</p>
+<ol>
+<li>Input Iterator 输入迭代器：只能向前单向迭代，只能读不能写</li>
+<li>Output Iterator 输出迭代器：只能向前单向迭代，只能写不能读</li>
+<li>Forward Iterator 向前迭代器：只能向前单向迭代，能读能写</li>
+<li>Bidirectional Iterator 双向迭代器：向前向后迭代，能读能写</li>
+<li>Random Access Iterator 随机访问迭代器：能向指针那样进行算术运算</li>
+</ol>
+<p>对应</p>
+<ul>
+<li>vector, deque: random access iterator</li>
+<li>list, set, map: bidirectional iterator</li>
+<li>unordered_set, unordered_map: forward iterator</li>
+</ul>
+<p>迭代器的优点</p>
+<ul>
+<li>代码编写方便，接口统一</li>
+<li>代码可重用性高</li>
+<li>容器可以动态处理，添加删除方便</li>
+</ul>
+<p>类型转换</p>
+<ul>
+<li>static_cast</li>
+<li>const_cast</li>
+<li>reinterpret_cast</li>
+<li>dynamic_cast ：运行时，基类与派生类指针间的下行转换，失败时返回 NULL</li>
+</ul>
+<p>NULL v.s. nullptr</p>
+<ol>
+<li>NULL 是预处理宏，它的值是 0 ； nullptr 是关键字，是一种特殊的字面值
+nullptr 有类型（ using nullptr_t = decltype(nullptr) ）</li>
+<li>NULL 在函数重载中会造成歧义</li>
+</ol>
+<p>不能用 memcpy 判断结构体的相等性，原因在于结构体在内存空间中经过了内存对齐，对齐时补的节点内容是随机的。应该自定义重载 operator== 函数完成两个结构体的比较。</p>
+<p>泛型编程的优缺点</p>
+<ol>
+<li>通用性高：编码时类型集是非绑定的</li>
+<li>效率高：编译期确定静态类型，与针对某个类型专门编写的代码性能相同</li>
+<li>类型检查严：静态类型在编译期能发现大部分错误</li>
+<li>缺点：二进制复用性差，每次用泛型库都要重新编译</li>
+</ol>
+<h3 id="面向对象">面向对象</h3>
+<p>三大特性</p>
+<ul>
+<li>封装：具体实现过程和数据封闭在类内部，只提供接口调用</li>
+<li>继承：派生类继承基类的非 private 方法或成员变量（ final 不可继承）</li>
+<li>多态
+<ul>
+<li>静态多态：函数重载、模板特化（编译时实现）</li>
+<li>动态多态：同一基类的不同派生类对象对同一个消息做出不同反应，通过虚函数实现（运行时实现）</li>
+</ul>
+</li>
+</ul>
+<p>静态类型指变量要声明时的类型，编译阶段确定，不可更改。程序在编译阶段确定对象的类型称为 <strong>静态绑定</strong> 。</p>
+<p>动态类型指变量在运行阶段确定的类型，可以更改。程序在运行阶段确定对象的类型称为 <strong>动态绑定</strong> 。</p>
+<ul>
+<li>类的成员函数，只有虚函数是动态绑定，其他都是静态绑定</li>
+</ul>
+<p>重载、重写、隐藏</p>
+<ul>
+<li>重载：同一作用域同函数名但不同参数列表（返回类型不算）</li>
+<li>重写：派生类重写基类的虚函数</li>
+<li>隐藏：派生类中定义与基类中同名的函数，不管参数列表是否相同，基类函数被隐藏，只能通过 <code>派生类对象.基类名::基类成员函数(...)</code> 来调用</li>
+<li>区别
+<ol>
+<li>类中函数的重载发生在同一个类内部，重写和隐藏至少要两个类</li>
+<li>重载函数需要与原函数同名且参数列表不同，重写要完全相同；隐藏可以相同也可以不同，且无关是否有 virtual 修饰</li>
+<li>隐藏发生在编译时，由编译器实现；重写发生在运行时，查找类虚函数表来决定调用哪个函数接口</li>
+</ol>
+</li>
+</ul>
+<p>重写的具体实现方式</p>
+<ul>
+<li>虚函数地址保存在虚函数表中，虚函数表指针保存在含有虚函数类的实例对象内存空间中</li>
+<li>基类指针指向派生类对象时，该基类指针的虚表指针实际指向派生类虚函数表</li>
+<li>如何未使用虚函数，普通的隐藏当基类指针指向派生类对象时，使用的是基类方法</li>
+</ul>
+<p>纯虚函数</p>
+<ul>
+<li>含有纯虚函数的类是 <strong>抽象类</strong></li>
+<li>抽象类不能创建对象，也不能作为函数参数和返回类型</li>
+<li>抽象类的指针和引用可以使用</li>
+<li>纯虚函数、抽象类的作用：丰富多态性，提供统一接口抽象、规范派生类行为</li>
+</ul>
+<p>虚函数表</p>
+<ul>
+<li>每个基类都有自己的虚函数表，派生类的虚函数表的数量由继承基类的数量决定</li>
+<li>虚函数表指针保存在类内存空间的头部</li>
+<li>派生类的虚函数表的顺序和继承时的顺序相同</li>
+<li>派生类自己的虚函数放在第一个虚函数表尾部，顺序与定义时相同</li>
+<li>派生类覆盖的基类虚函数，会在自己的虚函数表中代替其位置（函数指针不同）</li>
+<li>虚函数表在编译时创建，虚表指针在运行时创建</li>
+<li>为什么构造函数不能是虚函数？
+<ul>
+<li>调用构造函数的时候虚表指针还没初始化，无法进行虚函数调用</li>
+</ul>
+</li>
+<li>析构函数为什么建议定义成虚函数？
+<ul>
+<li>基类指针绑定到派生类对象时，如果析构函数不是虚函数，那么 delete
+只会调用基类的析构函数，导致内存泄漏</li>
+</ul>
+</li>
+</ul>
+<p>虚继承</p>
+<ul>
+<li>用于解决多重继承时可能出现的菱形继承问题</li>
+<li>共同基类在派生类中只存在一份实例（使用虚基类指针实现）</li>
+</ul>
+<p>默认构造函数</p>
+<ul>
+<li>用户自定义的不带参数</li>
+<li>用户自定义的带参数，但参数都有默认值</li>
+<li>编译器生成的</li>
+</ul>
+<p>类对象初始化时调用构造函数的顺序</p>
+<ol>
+<li>虚继承的基类</li>
+<li>其他基类（按继承顺序）</li>
+<li>内部成员的构造函数</li>
+<li>自身的构造函数</li>
+</ol>
+<p>类的初始化</p>
+<ul>
+<li>析构函数的调用顺序与构造函数相反</li>
+<li>类成员的构造顺序与成员初始化列表中的顺序无关，只与成员在类中的位置有关</li>
+<li>static 成员必须在类外部初始化（ C++17 里 inline static 成员可以直接在类内部初始化）</li>
+<li>const 成员必须在初始化列表中初始化</li>
+<li>减少构造函数的开销：使用成员初始化列表
+<ul>
+<li>避免先调用默认构造函数再调用赋值运算，因为在进行构造函数的函数体之前会先对类内的成员进行初始化</li>
+</ul>
+</li>
+</ul>
+<p>拷贝构造函数</p>
+<ul>
+<li>为什么必须声明为引用？避免拷贝构造函数无限制的递归而导致栈溢出</li>
+<li>拷贝构造函数调用的时机
+<ol>
+<li>直接初始化和拷贝初始化时</li>
+<li>将对象作为实参传递给非引用或非指针类型的形参时</li>
+<li>从一个返回类型为非引用或非指针的函数返回一个对象时</li>
+<li>用花括号初始化一个数组元素或聚合类时</li>
+</ol>
+</li>
+</ul>
+<p>如何禁止一个类被实例化？</p>
+<ol>
+<li>定义一个纯虚函数把它变成抽象类</li>
+<li>将类的所有构造函数声明为 private</li>
+<li>所有构造函数使用 =delete 修改（ C++11 ）</li>
+</ol>
+<p>实例化一个对象几步走</p>
+<ol>
+<li>分配空间。全局、静态在编译时分配，堆上的变量在运行时分配</li>
+<li><span class="underline">初始化虚表指针</span> （对于有继承关系的类）</li>
+<li>初始化（虚基类、基类、内部成员、初始化成员列表）</li>
+<li>赋值 =&gt; 构造函数的函数体</li>
+</ol>
+<p>mutable 关键字</p>
+<ul>
+<li>类成员被 mutable 修饰，那么 const 成员函数里也可以修改这个成员</li>
+</ul>
+<p>限制对象只能创建在堆上</p>
+<ul>
+<li>析构函数设置为私有，需要自己提供 destroy 函数供内存释放</li>
+<li>构造函数设置为 protected 并提供一个 public 静态函数用来构造实例</li>
+</ul>
+<p>限制对象只能创建在栈上</p>
+<ul>
+<li>将 operator new() 设置为私有 （同时设置 operator delete）</li>
+</ul>
+<p>空类只占 1 个字节，要需要的时候会为它创建 6 个成员函数：缺省构造、拷贝、析构、赋值、两个取址（const 和非 const ）</p>
+<p>如何禁止一个类被继承</p>
+<ul>
+<li>使用 final 关键字</li>
+<li>使用模板技巧 CRTP （奇异递归模板模式）如下图，参考 <a href="https://zh.wikipedia.org/wiki/%E5%A5%87%E5%BC%82%E9%80%92%E5%BD%92%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F">wikipedia CRTP</a></li>
+</ul>
+<figure><img src="/images/all-for-hiring_3.png">
+</figure>
+
+<h3 id="设计模式">设计模式</h3>
+<p>单例模式</p>
+<ul>
+<li>保证类的实例化对象仅有一个，并提供一个访问他的全局访问点</li>
+<li>实现：
+<ol>
+<li>默认构造、拷贝构造、赋值构造设置为私有</li>
+<li>全局访问点定义成静态类型的成员函数</li>
+</ol>
+</li>
+<li>两种方式
+<ul>
+<li>懒汉模式：直到第一次用到类的实例时才实例化问题：线程不安全。解决：加锁；使用函数内部的静态变量</li>
+<li>饿汉模式：类定义的时候就实例化</li>
+</ul>
+</li>
+</ul>
+<p>工厂模式</p>
+<ul>
+<li>简单工厂模式：一个工厂负责所有产品的创建，新产品时改工厂源码</li>
+<li>工厂方法模式：一个工厂只负责一个具体的产品，新增产品时新增工厂</li>
+<li>抽象工厂模式：新增产品类时上述两个方法都要新增工厂簇，抽象工厂模式在新增产品类时只需要新增对应的产品创建方法</li>
+</ul>
+<p>观察者模式</p>
+<ul>
+<li>1对多的关系，多个观察对象同时监听一个被观察对象</li>
+<li>被观察对象状态变化时，会通知所有的观察对象，使他们更新自己的状态</li>
+<li>观察者对象内部包括被观察者对象</li>
+<li>被观察者对象内部包括所有观察它的对象</li>
+</ul>
+<h2 id="数据库">数据库</h2>
+<h3 id="基本概念">基本概念</h3>
+<p>DBMS (DateBase Management System) 数据库管理系统，是创建和操纵数据库的工具。</p>
+<p>数据库类型</p>
+<ul>
+<li>关系型数据库
+<ul>
+<li>优点：表结构格式一致、易于维护；使用 SQL （结构化查询语言）可用于复杂查询</li>
+<li>缺点：读写性能差；建立在关系模型的基础上会有空间的浪费；表结构固定，灵活度低</li>
+<li>MySQL, Microsoft SQL Server, Oracle&hellip;</li>
+</ul>
+</li>
+<li>非关系型数据库（ NoSQL ）
+<ul>
+<li>优点：存储格式多样（ key-value 、文档、图片）；可扩展、高并发、低成本；支持数据的分布式处理</li>
+<li>缺点：不提供 SQL 支持；无事务机制；功能不完善</li>
+<li>Neo4j, Redis, MongoDB</li>
+</ul>
+</li>
+</ul>
+<p>数据库的优势：永久保存、查询高效、便于数据管理、智能数据分析</p>
+<p>三大范式</p>
+<ul>
+<li>1NF ：每个列都不可再拆</li>
+<li>2NF ：1NF + 一个表必须有一个主键，非主键完全依赖于主键</li>
+<li>3NF ：2NF + 非主键直接依赖于主键</li>
+</ul>
+<h3 id="索引">索引</h3>
+<p>优缺点</p>
+<ul>
+<li>优点：加快数据的检索速度</li>
+<li>缺点：创建和维护索引需要时间开销；索引需要占一定量的物理空间</li>
+</ul>
+<p>索引类型</p>
+<ol>
+<li>B树索引（B树、B+树）：见 <a href="#%E6%A0%91">树</a></li>
+<li>哈希索引：哈希碰撞时用链表存储
+<ul>
+<li>等值查询更快；不支持范围查询、排序、模糊查询、最左前缀匹配；查询性能不可预测（哈希碰撞）</li>
+</ul>
+</li>
+<li>位图索引：取值范围小时</li>
+</ol>
+<p>前缀索引</p>
+<ul>
+<li>索引开始的几个字符</li>
+<li>索引选择性：不重复的索引值，最佳值为 1 ，它与前缀长度反相关</li>
+</ul>
+<p>最左前缀匹配原则</p>
+<ul>
+<li>MySQL</li>
+<li>创建聚合索引时遵守最左优先的原则，检索数据时从联合索引的最左边开始匹配，直到遇到范围查询</li>
+<li>建议：把 where 子句中使用最频繁的一例放在最左边</li>
+</ul>
+<p>创建索引的原则</p>
+<ul>
+<li>查询频繁；数据值较多；查询远大于修改；有外键的列</li>
+</ul>
+<p>聚簇索引</p>
+<ul>
+<li>一种存储方式，指的是把数据和索引放到一起（B+树中叶子节点直接存放数据）</li>
+<li>非聚簇索引是把数据和索引分开存放，索引中只包含一个指向数据行的指针（B+树中的叶子结点只存储一个指向数据行的指针）</li>
+</ul>
+<figure><img src="/images/all-for-hiring_4.png">
+</figure>
+
+<h3 id="事务">事务</h3>
+<p>事务是一组数据库操作命令序列，要么都执行，要么都不执行。事务是是一个不可分割的工作逻辑单元。</p>
+<p>事务状态</p>
+<ol>
+<li>活跃状态：正在执行的事务处于此状态，更改存储在主内存缓冲区</li>
+<li>部分提交状态：事务最后一个操作执行完进入此状态</li>
+<li>失败状态：活跃或部分提交时遇到错误</li>
+<li>中止状态：从失败状态完成回滚后进入此状态</li>
+<li>提交状态：部分提交状态刷新到磁盘后</li>
+</ol>
+<p>事务的4个特性</p>
+<ul>
+<li>原子性：全执行或全不执行</li>
+<li>一致性：事务完成时数据必须处于一致状态</li>
+<li>隔离性：并发访问数据库时，一个用户的事务不被其他事务干扰</li>
+<li>持久性：事务提交后对数据的改变是持久的</li>
+</ul>
+<p>事务4特性的实现</p>
+<ul>
+<li>原子性、一致性、持久性：采用 <strong>日志</strong></li>
+<li>隔离性：采用 <strong>锁机制</strong></li>
+</ul>
+<p>事务之间的相互影响</p>
+<ul>
+<li>脏读：一个事务读取另一个事务未提交的数据</li>
+<li>不可重复读：一个事务两次相同的查询结果不一样</li>
+<li>幻读：一个事务对所有数据更新后再查询，发现有数据没更新（数量上）</li>
+<li>丢失更新：一个事务对数据做的修改被其他事务覆盖</li>
+</ul>
+<p>事务隔离级别（越来越高）</p>
+<ol>
+<li>读取未提交：无保护。可能发生脏读、不可重复读、幻读、丢失更新</li>
+<li>读取已提交：保证事务提交后才对其他事务可见。可能发生不可重复读、幻读、丢失更新； Oracle</li>
+<li>可重复读：保证一个事务中对同一份数据的读取结果总相同。可能发生幻读； MySQL</li>
+<li>可串行化：牺牲系统并发性。可能发生无</li>
+</ol>
+<h3 id="锁">锁</h3>
+<p>六大类型</p>
+<ul>
+<li>共享锁 S锁：支持并发读，有S锁时所有事务都不能修改这个数据</li>
+<li>排它锁 X锁：对数据增删改时不允许其他事务操作这个数据</li>
+<li>更新锁 U锁：防止出现死锁，更新锁一次分配给一个事务，如果要对资源进行修改那么U锁变成X锁，否则变成S锁</li>
+<li>意向锁：在层次结构中的某些底层资源上加锁
+<ul>
+<li>意向共享锁 IS</li>
+<li>意向排它锁 IX</li>
+<li>意向排它共享锁 SIX</li>
+</ul>
+</li>
+<li>架构锁：执行依赖于表架构的操作时用（执行数据定义语言 DDL 操作时）</li>
+<li>大容量更新锁：向表中大容量复制数据时</li>
+</ul>
+<p>锁与事务隔离级别</p>
+<ul>
+<li>读取未提交：读数据不加共享锁</li>
+<li>读取已提交：读操作加共享锁，读完释放</li>
+<li>可重复读：读操作加共享锁，事务执行完毕后才释放</li>
+<li>可串行化：锁定整个范围的键，一直持有锁直至事务完成</li>
+</ul>
+<p>避免死锁的方法</p>
+<ol>
+<li>不同程序约定以相同顺序访问表</li>
+<li>同一个事务中尽可能一次锁定所需要的所有资源</li>
+<li>升级锁定的粒度，如升级到表级锁</li>
+</ol>
+<p>乐观锁与悲观锁</p>
+<ul>
+<li>乐观：只在提交操作时检查是否违反数据完整性。适用于读多写少，使用 <strong>版本号或 CAS 算法</strong> 实现。</li>
+<li>悲观：事务执行时上锁，直到提交。对于长事务影响系统的并发。实现：使用数据库中的锁机制。</li>
+</ul>
+<h3 id="sql-语句">SQL 语句</h3>
+<p>分类</p>
+<ul>
+<li>数据定义语言 DDL ：对逻辑结构等有操作的 CREATE, DROP, ALTER</li>
+<li>数据查询语言 DQL ：查询操作 SELECT</li>
+<li>数据操纵语言 DML ：对数据进行增删改 INSERT, UPDATE, DELETE</li>
+<li>数据控制语言 DCL ：权限控制 GRANT, REVOKE, COMMIT, ROLLBACK</li>
+</ul>
+<p>键</p>
+<ul>
+<li>超键：能唯一标识元组的属性集</li>
+<li>候选键</li>
+<li>主键</li>
+<li>外键：另一个表中的主键</li>
+</ul>
+<p>约束</p>
+<ul>
+<li>非空约束</li>
+<li>默认约束：保证字段有默认值</li>
+<li>主键约束：标志主键</li>
+<li>外键约束：标志外键</li>
+<li>唯一约束：字段值的唯一性</li>
+<li>检查约束：限制一列的可用值范围</li>
+</ul>
+<p>char v.s. varchar</p>
+<ul>
+<li>char 长度固定 255 不足用空格填充。存取快，占空间。</li>
+<li>varchar 长度可变，存起始位结束位，最多 65532 (65535 - 3)。存取慢</li>
+</ul>
+<p>关联查询</p>
+<ul>
+<li>交叉连接 CROSS JOIN</li>
+<li>内连接 INNER JOIN</li>
+<li>外连接 JOIN
+<ul>
+<li>左外连接 LEFT JOIN</li>
+<li>右外连接 RIHGT JOIN</li>
+</ul>
+</li>
+<li>全连接 FULL JOIN = 左外连接 + 右外连接</li>
+<li>联合查询 UNION/UNION ALL
+<ul>
+<li>UNION 组合多个 SELECT 语句的结果，删掉重复的记录</li>
+<li>UNION ALL 返回所有组合结果，效率高于 UNION</li>
+</ul>
+</li>
+</ul>
+<p>子查询： 一个 SELECT 语句嵌套到另一个查询中</p>
+<ul>
+<li>标量子查询：返回单一值的标量</li>
+<li>列子查询：返回N行一列</li>
+<li>行子查询：返回一行N列</li>
+<li>表子查询：N行N列</li>
+</ul>
+<p>删除操作</p>
+<ul>
+<li>DROP: DDL 删除表（所以数据行、索引、权限）不可回滚</li>
+<li>DELETE: DML 删除表的数据行，表还在，可回滚</li>
+<li>TRUNCATE: DDL 表结构还在，删除表中所有数据，不可回滚</li>
+</ul>
+<h2 id="计算机网络">计算机网络</h2>
+<h3 id="基础概念">基础概念</h3>
+<p>OSI 七层网络模型</p>
+<ol>
+<li>应用层：HTTP,FTP,SMTP,Telnet,DNS</li>
+<li>表示层：TIFF,GIF,JPEG,PICT</li>
+<li>会话层：RPC,SQL,NFS</li>
+<li>传输层：TCP,UDP,QUIC</li>
+<li>网络层：IP,ICMP,ARP,RARP</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ol>
+<p>TCP/IP 五层参考模型（自上而下）</p>
+<ol>
+<li>应用层（囊括 OSI 中的应用、表示、会话）：为特定应用程序提供数据传输服务
+<ul>
+<li>HTTP, FTP, SMTP, DNS, Telnet</li>
+</ul>
+</li>
+<li>传输层：为进程提供&hellip;
+<ul>
+<li>TCP, UDP</li>
+</ul>
+</li>
+<li>网络层：为主机提供&hellip;
+<ul>
+<li>IP, ICMP, ARP</li>
+</ul>
+</li>
+<li>数据链路层：为同一链路的主机提供&hellip;</li>
+</ol>
+<h3 id="http">HTTP</h3>
+<p>uri v.s. url</p>
+<ul>
+<li>uri 统一资源标识符，它包括 url 与 urn （统一资源名）</li>
+<li>url 统一资源定位符</li>
+</ul>
+<p>应用程序体系架构</p>
+<ul>
+<li>C/S ，包括 C/S 与 B/S</li>
+<li>P2P</li>
+</ul>
+<p>DNS 查询过程</p>
+<ol>
+<li>查 Host 文件中有无对应映射</li>
+<li>查本地 DNS 缓存</li>
+<li>查 TCP/IP 参数指定的首先 DNS 服务器（本地 DNS 服务器）</li>
+<li>根据后缀名从根服务器查找顶级域名服务器 IP ，然后向下查找</li>
+</ol>
+<p>递归查询与迭代查询</p>
+<p>DNS 使用的协议通信</p>
+<ul>
+<li>一般使用 UDP 通过 53 端口进行通信</li>
+<li>当返回的响应超过 512 字节 或 区域传输 时采用 TCP 协议传输
+<ul>
+<li>区域传输主域名服务器向辅助域名服务器传送变化的那部分数据</li>
+</ul>
+</li>
+</ul>
+<p>DNS 域名服务器的层级</p>
+<ul>
+<li>根域名服务器：映射到相应顶级域名服务器 IP</li>
+<li>顶级域名服务器</li>
+<li>授权（权威）域名服务器：提供主机名到 IP 地址间的映射</li>
+<li>主域名服务器：一个或多个区域的域名服务器，通常与授权域名服务器重合</li>
+<li>辅助域名服务器</li>
+</ul>
+<p>网页请求全过程</p>
+<ol>
+<li>输入网址</li>
+<li>DNS 解析</li>
+<li>TCP 连接</li>
+<li>HTTP 请求</li>
+<li>请求处理</li>
+<li>浏览器渲染</li>
+<li>TCP 断开</li>
+</ol>
+<p>HTTP 报文结构</p>
+<ol>
+<li>
+<p>简略信息： 请求方法 - URL - 协议版本</p>
+<ul>
+<li>请求方法： GET HEAD POST PUT DELETE CONNECT OPTIONS PATCH TRACE</li>
+</ul>
+</li>
+<li>
+<p>请求首部/响应首部 Header</p>
+</li>
+<li>
+<p>内容主体</p>
+</li>
+<li>
+<p>安全：请求方法不会破坏服务器上的资源</p>
+</li>
+<li>
+<p>幂等：多次执行相同的操作，结果是相同的</p>
+</li>
+</ol>
+<p>GET v.s. POST</p>
+<ul>
+<li>GET 提交的数据放在 URL 之后，会被浏览器记录；
+POST 提交的数据放在 body 里，不会被浏览器记录。</li>
+<li>POST 可以进行复杂的加密， GET 不可以</li>
+<li>GET 只支持 ASCII 字符格式的参数， POST 方法没有限制</li>
+<li>GET 提交的数据大小有限制（浏览器而言，协议没限制）， POST 提交的数据大小理论上没有限制</li>
+<li>POST 对客户端来说更加安全（数据不会被记录）</li>
+<li>GET 对服务器来说更加安全（ GET 是安全方法，因为它只读不写）</li>
+<li>GET 方法具有幂等性，同样的请求执行一次与连续执行的效果是一样的，保持服务器的状态不变。而 POST 不具备幂等性，可能会修改服务的状态。</li>
+</ul>
+<p>HTTP 状态码</p>
+<ul>
+<li>1 开头：信息性状态码</li>
+<li>2 开头：成功状态码
+<ul>
+<li>200 成功返回响应</li>
+</ul>
+</li>
+<li>3 开头：重定向状态码
+<ul>
+<li>301 永久重定向</li>
+<li>302 临时重定向</li>
+</ul>
+</li>
+<li>4 开头：客户端错误状态码
+<ul>
+<li>400 请求错误</li>
+<li>401 没有权限访问</li>
+<li>403 请求被服务器禁止</li>
+<li>404 请示的 url 不存在</li>
+</ul>
+</li>
+<li>5 开头：服务器错误状态码
+<ul>
+<li>500 服务器处理请求出现错误</li>
+<li>501 服务器超出能力之外的方法</li>
+<li>504 请求资源服务器超时（来自网关或代理服务器）</li>
+</ul>
+</li>
+</ul>
+<p>HTTP 首部</p>
+<ul>
+<li>通用首部字段：请求报文与响应报文都可以用
+<ul>
+<li>Connection</li>
+<li>Date</li>
+<li>Cache-Control</li>
+</ul>
+</li>
+<li>请求首部字段：只有请求报文能用
+<ul>
+<li>Host ：指定域名，用于实现将请求发往同一台服务器的 <strong>不同网站</strong></li>
+<li>User-Agent</li>
+<li>Accept ：可接受的媒体类型</li>
+<li>Accept-Charset ：可接受的字符集</li>
+<li>Authorization ：认证信息</li>
+</ul>
+</li>
+<li>响应首部字段：只有响应报文能用
+<ul>
+<li>Server ：服务器的信息</li>
+<li>Vary ：缓存控制</li>
+<li>Location ：重写向后的 URL</li>
+<li>Retry-After ：多久后重新请求</li>
+</ul>
+</li>
+<li>实体首部字段：与返回的内容实体有关
+<ul>
+<li>Content-{ Encoding, Length, Language, MD5, Type }</li>
+</ul>
+</li>
+</ul>
+<p>几组对应的 HTTP 首部值</p>
+<ul>
+<li>Accept 和 Content-Type 分别表示客户端能接受的数据类型和服务器响应的数据类型，如 text/html</li>
+<li>Accept-Encoding 和 Content-Encoding 分别表示客户端能接受的数据压缩方法和服务器响应数据的压缩方法，如 gzip</li>
+</ul>
+<p>连接</p>
+<ul>
+<li>短连接：一个 HTTP 请求对应一个 TCP 连接</li>
+<li>长连接：在一个 TCP 连接中进行多次 HTTP 通信</li>
+<li>HTTP 1.1 之前默认短（ Connection: Keep-Alive 设置为长），之后默认长 （ Connection: close ）断开 TCP 连接</li>
+<li>流水线（管道传输）：不等服务器返回就发送下一个 HTTP 请求。解决了请求的队头阻塞，但是没有解决响应的了队头阻塞，因为服务器对这些请求的响应还是顺序的</li>
+</ul>
+<p>HTTP 保存状态的方法</p>
+<ol>
+<li>session 第一次发送请求时生成 sessionId ，分配给客户端，之后的请求携带 sessionId</li>
+<li>cookie 第一次发送请求时生成 cookie &hellip;</li>
+</ol>
+<p>sessionId v.s. cookie</p>
+<ul>
+<li>sessionId 需要在服务端存储客户端数据，占用资源较大；客户端携带的
+sessionId 不含用户信息</li>
+<li>cookie 不需要在服务端存储客户端数据，占用资源小；客户端携带的
+cookie 包含用户信息，相对不安全</li>
+<li>cookie 数据量一些比 sessionId 要大，占用更多传输资源</li>
+</ul>
+<p>Websocket ：浏览器与服务器之间的全双工通信标准。</p>
+<ul>
+<li>建立在 TCP 之上</li>
+<li>兼容 HTTP 默认端口也是 80 和 443 握手采用 HTTP</li>
+<li>数据格式较，开销小</li>
+</ul>
+<p>CDN 内容分发网，是一种冗余机制，利用更靠近用户的服务器将资源分发给用户。</p>
+<p>解决 TCP 的“粘包”问题</p>
+<ol>
+<li>通过设置回车符、换行符作为 HTTP header 的边界</li>
+<li>通过 Content-Length 字段作为 HTTP body 的边界</li>
+</ol>
+<p>HTTP 缓存</p>
+<ol>
+<li>强制缓存：浏览器判断缓存是否过期。利用 HTTP 响应头部中
+Cache-Control 和 Expires 二者之一进行判断，前者优先级更高。第一次请求时服务器返回过期时间，浏览器再次访问时先看资源是否过期。</li>
+<li>协商缓存：服务器返回状态码 304 告诉浏览器可以使用本地缓存。
+<ul>
+<li>响应头部中的 Last-Modified 字段和请求头部中的 If-Modified-Since
+字段联合实现</li>
+<li>响应头部中的 Etag 字段和请求头部中的 If-None-Match 字段</li>
+</ul>
+</li>
+</ol>
+<p>HTTP/1.1 的优点</p>
+<ul>
+<li>简单、灵活和易于扩展、应用广泛和跨平台</li>
+</ul>
+<p>HTTP/1.1 的缺点</p>
+<ul>
+<li>无状态，前后关联的操作比较麻烦</li>
+<li>明文传输，会出现信息泄漏</li>
+<li>不安全，不验证通信双方的身份</li>
+</ul>
+<p>HTTPS 的特征</p>
+<ul>
+<li>混合加密
+<ol>
+<li>对称加密：速度快，但安全性弱，用来传递数据</li>
+<li>非对称加密：速度慢，安全性强，用来传递对称加密的密钥</li>
+</ol>
+</li>
+<li>数字证书认证
+<ol>
+<li>服务器把自己的公钥注册到 CA （数据证书认证机构）</li>
+<li>CA 用自己的私钥对服务器的公钥签名，并颁发数字证书</li>
+<li>通信时服务器先把数字证书发送给客户端</li>
+<li>客户端用内置在系统里的 CA 公钥确认数字证书的真实性</li>
+<li>如果真实，就从数字证书中取得服务器公钥，使用它对报文进行加密后发送给服务器</li>
+<li>服务器用自己的私钥解密</li>
+</ol>
+</li>
+<li>SSL/TSL 报文摘要检验报文完整性：比 HTTP 更加安全，它结合了加密、摘要检验和认证</li>
+<li>通信端口为 443</li>
+<li>TLS 四次握手 （ 2 个 RTT 时延）
+<ol>
+<li>Client Hello : (Client -&gt; Server) TLS version &amp; Client Random &amp;
+客户端支持的密码套件</li>
+<li>Server Hello : (Server -&gt; Client) TLS version ACK &amp;
+Server Random &amp; 密码套件 ACK &amp; 数字证书</li>
+<li>(Client -&gt; Server) pre-master key &amp; 加密通信算法改变通知
+&amp; 客户端握手结束 （此时计算出会话密钥）</li>
+<li>(Server -&gt; Client) 加密通信算法改变通知 &amp; 服务器握手结束 （此时计算出会话密钥）</li>
+</ol>
+</li>
+<li>CA 签发：先把持有者信息（包括服务器公钥）打包，然后用哈希算法哈希；
+CA 使用自己的私钥对哈希值进行加密（称为签名）；客户端收到数字证书（带签名）后先用相同的哈希算法对同样的信息进行哈希，再用 CA 公钥对签名进行解密，通过对比两个哈希值就能知道服务器是否可信</li>
+<li>HTTPS 一定安全？中间人攻击（原因也是因为用户信任了中间人的证书）</li>
+</ul>
+<p>如何优化 HTTP</p>
+<ol>
+<li>缓存技术</li>
+<li>减少 HTTP 请求
+<ul>
+<li>将重定向请求交给代理服务器处理（而非客户端）</li>
+<li>小资源合成大资源再传输，减少请求头的重复传输</li>
+<li>按需访问资源，资源延时请求</li>
+</ul>
+</li>
+<li>压缩技术（无损、有损）</li>
+</ol>
+<p>HTTPS 优化思路</p>
+<ol>
+<li>硬件优化，加解密是计算密集的</li>
+<li>软件优化
+<ul>
+<li>软件升级</li>
+<li>协议优化</li>
+</ul>
+</li>
+</ol>
+<p>HTTP/2 协议的内容</p>
+<ol>
+<li>头部压缩（ HPACK 算法压缩）
+<ul>
+<li>静态表：对头部常用字段编码，在传输的时候只传一个序号，只包含了
+61 种高频出现的头部字符串</li>
+<li>动态表：针对静态表中没有的字段新建序号到字段的映射</li>
+<li>Huffman 编码：对字段的值使用 Huffman 编码，采用一张静态
+Huffman 表，里面是 ASCII 码到二进制码的映射关系</li>
+</ul>
+</li>
+<li>二进制帧：将 HTTP/1 的文本格式数据改用二进制格式传输，将报文划分成 <strong>帧</strong>
+<ul>
+<li>两类帧：
+<ul>
+<li>HEADERS 帧：以二进制方式存储的首部信息</li>
+<li>DATA 帧：以二进制方式存储的消息负载</li>
+</ul>
+</li>
+<li>二进制帧的结构
+<ul>
+<li>9个字节的帧头，开头3字节表示帧数据长度；1字节表示帧类型（数据帧和控制帧）；1字节充当标志位，携带简单的控制信息；4字节流标识符用来标识该 Frame 属于哪个 Stream ；最后的帧数据，存放的是通过
+HPACK 算法压缩过的 HTTP 头部和包体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>并发传输
+<ul>
+<li>实现了 Stream 并发，多个 Stream 复用 1 个 TCP 连接，节约 TCP 和
+TSL 握手时间，减少 TCP 慢启动阶段对流量的影响（解决 HTTP 的队头阻塞问题，但仍然被 TCP 的队头阻塞限制）</li>
+<li>1个TCP连接包含1个或多个 Stream</li>
+<li>Stream 上可以包含1个或多个 Message ，与 HTTP/1 中的请求或响应对应</li>
+<li>Message 里包含1个或多个 Frame 以二进制压缩格式存放的 HTTP/1 中的内容</li>
+<li>不同 Stream 的帧可以乱序发送（ Stream 之间的并发）因为每个帧头部会携带 StreamID 信息，接收端可以根据这个信息组装。同一个 Stream 内部的帧必须是 <strong>严格有序</strong></li>
+</ul>
+</li>
+<li>支持服务器主动推送资源：客户端建立的 Stream 必须是奇数号，服务器建立的
+Stream 必须是偶数号。服务器推送资源时，先发送 PUSH_PROMISE 帧，告诉客户端将以哪个 StreamID 推送消息</li>
+</ol>
+<h3 id="tcp">TCP</h3>
+<h4 id="基础">基础</h4>
+<p>几个控制位</p>
+<ul>
+<li>ACK 确认应答，除了最初建立连接时的包外都为 1</li>
+<li>RST 连接出现异常必须断开</li>
+<li>SYN 希望建立连接</li>
+<li>FIN 希望断开连接</li>
+</ul>
+<p>TCP 的特点</p>
+<ul>
+<li>面向连接：一对一建立连接</li>
+<li>可靠：保证报文一定到达接收端</li>
+<li>基于字节流：消息会被分组成多个 TCP 报文，接收端保证其有序性</li>
+</ul>
+<p>TCP 四元组 （源地址 源端口 目标地址 目标端口）</p>
+<p>最大 TCP 连接数 = 客户端 IP 数 \( \times \) 客户端接口数</p>
+<p>服务端最大并发连接数还受下面几个因素的限制</p>
+<ol>
+<li>文件描述符的数量限制（系统最大可打开、用户&hellip;、进程&hellip;）</li>
+<li>内存大小限制，是否会触发 OOM</li>
+</ol>
+<p>TCP v.s. UDP</p>
+<ol>
+<li>TCP 面向连接； UDP 传输前不需要连接</li>
+<li>TCP 是一对一； UDP 支持一对一、一对多、多对多</li>
+<li>TCP 是可靠交付； UDP 是尽最大努力交付，不保证可靠</li>
+<li>TCP 有拥塞控制和流量控制，而 UDP 没有</li>
+<li>TCP 首部更长，且可以是变长； UDP 首部只有 8 个字节</li>
+<li>TCP 是流式传输，没有边界，保证顺序； UDP 按包来发送，有边界</li>
+<li>TCP 根据 MSS 大小在传输层分片； UDP 根据 MTU 大小在 IP 层分片</li>
+</ol>
+<p>TCP 与 UDP 可以绑定同一个端口</p>
+<ul>
+<li>端口只用来区分交付给哪个应用程序</li>
+<li>TCP 的数据报与 UDP 的数据报由不同的模块负责</li>
+</ul>
+<h4 id="三次握手与四次挥手">三次握手与四次挥手</h4>
+<p>TCP 建立连接的三次握手</p>
+<figure><img src="/images/all-for-hiring_5.png">
+</figure>
+
+<p>为什么要三次握手？</p>
+<ul>
+<li>防止重复历史连接的初始化：旧连接请求比新的连接请求更快到达</li>
+<li>同步双方的初始序列号</li>
+<li>避免资源浪费</li>
+</ul>
+<p>MTU v.s. MSS</p>
+<ul>
+<li>MTU 一个网络包的最大长度，以太网中一般为 1500 字节</li>
+<li>MSS 除去 IP 和 TCP 头部之后，一个网络包所能容纳的 TCP 数据的最大长度</li>
+<li>如果不使用 MSS 而全部交给 IP 层进行分片，那只要其中一个分片丢失，那么整个 TCP 数据包都要重传</li>
+</ul>
+<p>丢失分析</p>
+<ol>
+<li>第一次握手丢失，客户端超时重传 SYN 报文，每次超时时间是上一次的 2 倍</li>
+<li>第二次握手丢失，客户端与服务器都重传</li>
+<li>第三次握手丢失，服务器重传 SYN+ACK 报文 （ ACK 报文不触发重传机制）</li>
+</ol>
+<p>TCP 连接断开四次挥手</p>
+<figure><img src="/images/all-for-hiring_6.png">
+</figure>
+
+<p>丢失分析</p>
+<ul>
+<li>第一次挥手丢失：客户端重传 FIN 报文</li>
+<li>第二次挥手丢失：客户端重传 FIN 报文</li>
+<li>第三次挥手丢失：服务器重传 FIN 报文</li>
+<li>第四次挥手丢失：服务器重传 FIN 报文</li>
+</ul>
+<p>为什么要第三次挥手后要等待 2MSL 时间</p>
+<ul>
+<li>MSL 报文最大生存时间，超过这个时间报文被会丢弃</li>
+<li>2MSL 至少允许报文丢失一次</li>
+</ul>
+<p>为什么有 TIME_WAIT 阶段</p>
+<ul>
+<li>防止历史连接中的数据被后面相同四元组的连接错误接收</li>
+<li>保证被动关闭连接的一方能正确关闭（ ACK 报文）</li>
+<li>TIME_WAIT 过多会占用资源（系统内存、端口）</li>
+</ul>
+<p>半连接队列与全连接队列</p>
+<figure><img src="/images/all-for-hiring_7.png">
+</figure>
+
+<p>防止 SYN 攻击</p>
+<ul>
+<li>增大半连接队列</li>
+<li>开启 tcp_syncookies 功能</li>
+<li>减少 SYN+ACK 的重传次数</li>
+</ul>
+<h4 id="重传">重传</h4>
+<ul>
+<li>超时重传
+<ul>
+<li>RTT 发送数据到接收到 ACK</li>
+<li>RTO 超时重传时间，应略大于 RTT</li>
+</ul>
+</li>
+<li>快速重传：连续收到 3 个 ACK 触发时在超时之前重传</li>
+<li>SACK 选择性确认：通过 TCP 头部选项中的 SACK 字段发送 <strong>已经接收</strong> 的数据范围，发送方根据这个字段的信息只重传没被接收的</li>
+<li>D-SACK 使用 SACK 来告诉发送方哪些数据被重复接收了，作用包括
+<ol>
+<li>ACK 丢包确认</li>
+<li>网络延迟，发出去的包没有丢失，而是由于延时晚到了</li>
+</ol>
+</li>
+</ul>
+<h4 id="流量控制">流量控制</h4>
+<ul>
+<li>发送窗口 swnd 与接收窗口 rwnd：发送方发送窗口的大小不能超过接收方给出的接收窗口大小</li>
+<li>窗口关闭：接收方没有能力再接收数据，在最后一个 ACK 报文里将接收窗口设置为 0
+<ul>
+<li>怎么避免之后再发送大于0的接收窗口报文消失导致的死锁？发送方采用一个持续计时器，当收到窗口关闭的报文时启动，计时器到期时给接收方发送一个 <strong>窗口探测报文</strong> 对方接收后给出自己现在的接收窗口大小</li>
+</ul>
+</li>
+<li>如何避免窗口很小的时候也发数据，浪费资源？
+<ul>
+<li>接收方当窗口大小小于 MIN(MSS, 缓存空间/2) 时通告发送方接收窗口为 0</li>
+<li>发送方使用 Nagle 算法，延时处理，只有满足下列条件之一时才发送数据：
+<ol>
+<li>要等窗口大小 &gt;= MSS 且数据大小 &gt;= MSS</li>
+<li>收到之前发送数据的 ACK 回包</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="拥塞控制">拥塞控制</h4>
+<ul>
+<li>拥塞窗口 cwnd ：发送方维护的一个状态变量，它会根据网络拥塞程度动态变化。 swnd = MIN(cwnd, rwnd)</li>
+<li>发生超时重传就认为网络出现了拥塞</li>
+<li>四个阶段：慢启动、拥塞避免、拥塞发生、快速恢复
+<ul>
+<li>慢启动：每收到一个 ACK 后 cwnd := cwnd + 1 。此时拥塞窗口呈 <strong>指数增加</strong></li>
+<li>拥塞避免：当 cwnd 超过 <strong>慢启动门限</strong> ssthresh 时进入拥塞避免阶段。此时每收到一个 ACK 后 cwnd := cwnd + 1/cwnd （即每收到 cwnd
+个 ACK 才会将拥塞窗口加 1 ）。此时拥塞窗口呈 <strong>线性增长</strong></li>
+<li>拥塞发生：出现重传后进入拥塞发生阶段。
+<ul>
+<li>发生超时重传时，做下面两件事：
+<ol>
+<li>ssthresh := cwnd/2</li>
+<li>cwnd := 1 （恢复初始值，可调） 之后再进行慢启动阶段</li>
+</ol>
+</li>
+<li>发生快速重传时，做下面两件事：
+<ol>
+<li>cwnd := cwnd/2</li>
+<li>ssthresh := cwnd 之后进入快速恢复阶段</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>快速恢复：一般与快速重传同时使用，步骤如下：
+<ol>
+<li>拥塞窗口 cwnd := ssthresh + 3</li>
+<li>重传丢失的数据包</li>
+<li>如果再收到重复的 ACK ，那么 cwnd 增加 1 ；如果收到新数据的
+ACK ，那么把 cwnd 设置为第一步中 ssthresh 的值。之后进入拥塞避免阶段</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<figure><img src="/images/all-for-hiring_8.png">
+</figure>
+
+<figure><img src="/images/all-for-hiring_9.png">
+</figure>
+
+<h2 id="linux-c-c-plus-plus-网络编程">Linux, C/C++ 网络编程</h2>
+<h3 id="常用-linux-命令">常用 Linux 命令</h3>
+<ul>
+<li>查看当前进程 ps
+<ul>
+<li>查看所有进程 ps -ef | grep &ldquo;something&rdquo;</li>
+<li>查看所有进程的所有状态 ps -aux</li>
+</ul>
+</li>
+<li>查看当前路径 pwd</li>
+<li>新建文件 touch</li>
+<li>查看文件 cat （全部输出） more（显示百分比） less （翻页查看）
+tail （指定行数）</li>
+<li>文本搜索 grep</li>
+<li>文件搜索 find</li>
+<li>查看网卡信息 ifconfig / <code>ip addr show</code> 都可以，后者更新；
+Windows 上是 ipconfig</li>
+<li>查看与某台机器的连接情况 ping</li>
+<li>查看当前系统端口的使用情况 <code>netstat -an</code>
+<ul>
+<li>端口号是否被占用 netstat -anp | grep 8080</li>
+<li>查看所有端口的使用情况 netstat -nultp</li>
+</ul>
+</li>
+<li>显示历史输入的命令 history</li>
+<li>查看文件统计信息 wc -l, -w, -c （行数、单词数、字符数）</li>
+<li>查看性能指标
+<ul>
+<li>top: CPU、内存</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Niall Zhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2024-09-06 13:39
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/cpp/">cpp</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/note/whisper-2023-may/">
+            <span class="next-text nav-default">C&#43;&#43; view 实现探究、 gitea 搭建</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:niazhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yhzhoucs" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Emacs 折腾插曲：改进 org-download 截图功能 - Niall&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Niall Zhou" /><meta name="description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.126.3 with theme even" />
+
+
+<link rel="canonical" href="http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:url" content="http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/">
+  <meta property="og:site_name" content="Niall&#39;s Blog">
+  <meta property="og:title" content="Emacs 折腾插曲：改进 org-download 截图功能">
+  <meta property="og:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-25T22:37:14+08:00">
+    <meta property="article:modified_time" content="2024-04-25T23:38:28+08:00">
+    <meta property="article:tag" content="折腾">
+    <meta property="article:tag" content="Emacs">
+    <meta property="article:tag" content="Elisp">
+
+  <meta itemprop="name" content="Emacs 折腾插曲：改进 org-download 截图功能">
+  <meta itemprop="description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
+  <meta itemprop="datePublished" content="2024-04-25T22:37:14+08:00">
+  <meta itemprop="dateModified" content="2024-04-25T23:38:28+08:00">
+  <meta itemprop="wordCount" content="873">
+  <meta itemprop="keywords" content="折腾,Emacs,Elisp">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs 折腾插曲：改进 org-download 截图功能">
+  <meta name="twitter:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Niall&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Niall&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Emacs 折腾插曲：改进 org-download 截图功能</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-04-25 22:37 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/"> 小技巧 </a>
+            </div>
+          <span class="more-meta"> 约 873 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>如 <a href="/post/tricks/emacs_zheteng_2/">Emacs 折腾小记（二）</a> 中所说，利用 org-download + irfanview 在
+windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题：</p>
+<ol>
+<li>它在截图的时候没办法隐藏当前的 Emacs 窗口</li>
+<li>图片保存的位置只与当前笔记的 headline 有关</li>
+</ol>
+<p>按我个人的需求来说，想实现以下的效果：</p>
+<ol>
+<li>可以选择截图的时候是否隐藏当前 Emacs 窗口</li>
+<li>如果选择隐藏，在截图时 Emacs 窗口自动最小化，并在截图完成后恢复</li>
+<li>图片保存的位置加上 Org 文件的文件名层级，即最终的位置为（指定绝对位置 + Org 文件名目录 + headline 目录 + 图片名.png ）。</li>
+</ol>
+<p>这里选择通过 elisp 中的 <code>add-advice</code> 来实现：</p>
+<p>首先定义一个函数包裹 org-download-screenshot 的无参调用形式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">yuh/org-download-screenshot-wrapper</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Wrap org-download-screenshot for applying advices.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;org-download</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">call-interactively</span> <span class="nf">#&#39;</span><span class="nv">org-download-screenshot</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因为 org-download-sreenshot 的有参形式被 org-download-clipboard 调用，如果直接在上面添加 advice ，那么在粘贴剪贴板里的图片时 Emacs 也会最小化，这显然不是我们想要的。</p>
+<p>然后定义两个钩子函数，一个在截图开始前执行，一个在截图完成后执行。这两个函数的代码目前很简单，因为需求只是完成窗口的最小化和还原。这里调用函数 <code>w32-send-sys-command</code> 来实现，这个函数是 Emacs 提供用来模拟 Windows
+上窗口选项的，它接受一个整型参数，它是值是一个有效的 <a href="https://learn.microsoft.com/zh-cn/windows/win32/menurc/wm-syscommand">WM_SYSCOMMAND</a> 消息。这里只要用到其中的最小化窗口消息（ 0xf020 ）和还原窗口消息（ 0xf120 ）。因此定义这两个钩子函数为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">yuh/org-download-pre-screenshot</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Minimize window before capture the screen.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">w32-send-sys-command</span> <span class="mh">#xf020</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">yuh/org-download-after-screenshot</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Minimize window before capture the screen.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">w32-send-sys-command</span> <span class="mh">#xf120</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接着，将这两个钩子通过 add-advice 加入到之前定义好的无参调用截图函数
+yuh/org-download-screenshot-wrapper 上去。因为我想能通过命令来控制是否在截图时隐藏窗口，所以这里写成一个交互式的开关：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">yuh/org-download-toggle-capture-self</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Toggle self-capture in org-download-screeshot.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nv">advice-member-p</span> <span class="ss">&#39;yuh/org-download-pre-screenshot</span> <span class="ss">&#39;yuh/org-download-screenshot-wrapper</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">advice-remove</span> <span class="ss">&#39;yuh/org-download-screenshot-wrapper</span> <span class="nf">#&#39;</span><span class="nv">yuh/org-download-pre-screenshot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">advice-remove</span> <span class="ss">&#39;yuh/org-download-screenshot-wrapper</span> <span class="nf">#&#39;</span><span class="nv">yuh/org-download-after-screenshot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Self-Hide Screenshot Removed&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">advice-add</span> <span class="ss">&#39;yuh/org-download-screenshot-wrapper</span> <span class="nb">:before</span> <span class="nf">#&#39;</span><span class="nv">yuh/org-download-pre-screenshot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">advice-add</span> <span class="ss">&#39;yuh/org-download-screenshot-wrapper</span> <span class="nb">:after</span> <span class="nf">#&#39;</span><span class="nv">yuh/org-download-after-screenshot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Self-Hide Screenshot Toggled&#34;</span><span class="p">))))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样需求1和2大致就完成了。第3个需求实现起来比较简单，就是定义一个钩子函数在图片保存前将保存的地址前缀修改为（绝对地址/当前 Org 文件名/），地址剩下的部分 org-download 会自动完成，函数定义如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">yuh/org-download-set-image-dir</span> <span class="p">(</span><span class="kp">&amp;optional</span> <span class="nv">basename</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Set image dir with base-dir + buffername.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-download-image-dir</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;C:/Users/niall/OneDrive/note/org/images/&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="nv">file-name-sans-extension</span> <span class="p">(</span><span class="nf">buffer-name</span><span class="p">)))))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最后，只要在 use-package 中将上面所有的逻辑集成进 org-download 里就行，这里默认将截图时隐藏 Emacs 窗口开启：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">org-download</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">org</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:bind</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="s">&#34;&lt;f7&gt;&#34;</span> <span class="o">.</span> <span class="nv">org-download-clipboard</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="s">&#34;&lt;f8&gt;&#34;</span> <span class="o">.</span> <span class="nv">yuh/org-download-screenshot-wrapper</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">advice-add</span> <span class="ss">&#39;org-download-image</span> <span class="nb">:before</span> <span class="nf">#&#39;</span><span class="nv">yuh/org-download-set-image-dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-download-screenshot-method</span> <span class="s">&#34;irfanview /capture=4 /convert=\&#34;%s\&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">yuh/org-download-toggle-capture-self</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-download-screenshot-file</span>
+</span></span><span class="line"><span class="cl">        <span class="s">&#34;c:\\Users\\niall\\AppData\\Local\\Temp\\screenshot.png&#34;</span><span class="p">))</span> <span class="c1">;; irfanview do not accept / path</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终的效果展示如下</p>
+<p>截图隐藏 Emacs 窗口：</p>
+<figure><img src="/images/emacs_zheteng_n2_2_2.gif">
+</figure>
+
+<p>使用开关设置不隐藏：</p>
+<figure><img src="/images/emacs_zheteng_n2_2_1.gif">
+</figure>
+
+<p>注意到上面图片的保存路径中均加上了 Org 文件名的一级。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Niall Zhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2024-04-25 23:38
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8A%98%E8%85%BE/">折腾</a>
+          <a href="/tags/emacs/">Emacs</a>
+          <a href="/tags/elisp/">Elisp</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/note/algorithm-note-1-tree/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">算法笔记其一：树（更新中）</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/tricks/emacs_zheteng_2/">
+            <span class="next-text nav-default">Emacs 折腾小记（二）</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:niazhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yhzhoucs" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

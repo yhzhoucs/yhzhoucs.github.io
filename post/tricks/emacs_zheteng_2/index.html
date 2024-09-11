@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Emacs 折腾小记（二） - Niall&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Niall Zhou" /><meta name="description" content="最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.126.3 with theme even" />
+
+
+<link rel="canonical" href="http://niallzhou.cfd/post/tricks/emacs_zheteng_2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:url" content="http://niallzhou.cfd/post/tricks/emacs_zheteng_2/">
+  <meta property="og:site_name" content="Niall&#39;s Blog">
+  <meta property="og:title" content="Emacs 折腾小记（二）">
+  <meta property="og:description" content="最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-04-20T22:30:00+08:00">
+    <meta property="article:modified_time" content="2024-04-21T17:54:30+08:00">
+    <meta property="article:tag" content="折腾">
+    <meta property="article:tag" content="Emacs">
+
+  <meta itemprop="name" content="Emacs 折腾小记（二）">
+  <meta itemprop="description" content="最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只">
+  <meta itemprop="datePublished" content="2024-04-20T22:30:00+08:00">
+  <meta itemprop="dateModified" content="2024-04-21T17:54:30+08:00">
+  <meta itemprop="wordCount" content="2071">
+  <meta itemprop="keywords" content="折腾,Emacs">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Emacs 折腾小记（二）">
+  <meta name="twitter:description" content="最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。 1. 改进的 Golden Dict 查词 Emacs 折腾小记 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Niall&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Niall&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Emacs 折腾小记（二）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-04-20 22:30 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/"> 小技巧 </a>
+            </div>
+          <span class="more-meta"> 约 2071 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-dot-改进的-golden-dict-查词">1. 改进的 Golden Dict 查词</a></li>
+        <li><a href="#2-dot-护眼-pro-max">2. 护眼 Pro Max</a></li>
+        <li><a href="#3-dot-添加-pdf-tools">3. 添加 pdf-tools</a></li>
+        <li><a href="#4-dot-为-org-添加番茄钟">4. 为 Org 添加番茄钟</a></li>
+        <li><a href="#5-dot-为-org-添加-zotero-链接">5. 为 Org 添加 Zotero 链接</a></li>
+        <li><a href="#6-dot-使用-org-download-来快速插入图片">6. 使用 org-download 来快速插入图片</a></li>
+        <li><a href="#写在最后">写在最后</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>最近断断续续地又为 Emacs 和系统做了一些优化，渐渐地把它作为主要的主产工具了。</p>
+<h2 id="1-dot-改进的-golden-dict-查词">1. 改进的 Golden Dict 查词</h2>
+<p><a href="/post/tricks/emacs_zheteng/">Emacs 折腾小记</a> 中提到使用 goldendict-ng 作为离线词典来查单词，但这里只涉及到了它在 Emacs 内部用法，后来我想着把这个查词工具应用得更广泛一些，把它变成 Windows 系统下生产时的主要查词工具。</p>
+<p>这里实现的方式比较简单，直接写了一个 AutoHotKey 脚本，监听双击后文本选中的事件，一旦双击后选中了一个英文单词，那么立马调用 goldendict 来翻译。这里最关键的是利用了 goldendict 的命令行查词接口 <code>goldendict [word]</code>
+。</p>
+<p>脚本如下所示，具体的逻辑参考代码注释。这里还添加了一个在 goldendict 界面点击鼠标中键快速退出的功能，方便看完词的意思后直接跳回原来的界面，防止从原文本中分心。有了这个脚本，现在就可以方便地查询浏览器、PDF中的英文单词了。现在我已经几乎不用网络搜索查词，所有需求全部都能用
+goldendict 解决。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~LButton::
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    if (A_PriorHotkey != &#34;~LButton&#34; or A_TimeSincePriorHotkey &gt; 200)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        ; 不是有效的双击（太慢了）
+</span></span><span class="line"><span class="cl">        KeyWait &#34;LButton&#34;
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    ; 当前窗口无效
+</span></span><span class="line"><span class="cl">    if WinActive(&#34;ahk_class CabinetWClass&#34;)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    ; 备份剪贴板的内容
+</span></span><span class="line"><span class="cl">    prev_clipboard_content := A_Clipboard
+</span></span><span class="line"><span class="cl">    A_Clipboard := &#34;&#34;
+</span></span><span class="line"><span class="cl">    Sleep 200 ; 选中文本延时
+</span></span><span class="line"><span class="cl">    if WinActive(&#34;ahk_class Emacs&#34;)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        Send &#34;!w&#34; ; alt+w 来复制 Emacs 中的文本
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    else
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        Send &#34;^c&#34; ; ctrl+c 来复制其他的软件中的文本
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    ClipWait(1)
+</span></span><span class="line"><span class="cl">    Length := StrLen(A_Clipboard)
+</span></span><span class="line"><span class="cl">    ; 防止选中的文本不是英文单词
+</span></span><span class="line"><span class="cl">    if (Length &lt; 2 or Length &gt; 20)
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        A_Clipboard := prev_clipboard_content ; restore clipboard
+</span></span><span class="line"><span class="cl">        return
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    Run &#34;C:\Program Files (x86)\GoldenDict\GoldenDict.exe &#34; A_Clipboard ; 调用 goldendict
+</span></span><span class="line"><span class="cl">    A_Clipboard := prev_clipboard_content
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#Hotif WinActive(&#34;ahk_exe GoldenDict.exe&#34;)
+</span></span><span class="line"><span class="cl">MButton::ControlSend &#34;{Esc}&#34;, , &#34;ahk_exe GoldenDict.exe&#34; ; 按鼠标中键退出 goldendict
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<figure><img src="/images/emacs_zheteng_n2_1.gif">
+</figure>
+
+<h2 id="2-dot-护眼-pro-max">2. 护眼 Pro Max</h2>
+<p>经常面对电脑屏幕难免会眼疲劳，即使用了 <a href="/post/tricks/emacs_zheteng/">Emacs 折腾小记</a> 中提到的昼夜不同主题，也会因为显示器的蓝光而眼睛酸痛。通过搜索发现 Linux 上的一款开源护眼神器 <a href="https://github.com/jonls/redshift.git">redshift</a> ，令人惊喜的是它现在已经有了构建好的 Windows 的版本，可以直接下载下来使用。 redshift 根据你所在位置的经纬度计算出日出日落时间，再根据这个时间来调节屏幕的色温。所有配置都写在
+%USERPROFILE%\AppData\Local\ 下的 redshift.config 文件中。</p>
+<p>它仓库中自带了 redshift.config 的示例，只要稍作修改，放到上面说的目录中就行。</p>
+<p>我做的修改如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">-adjustment-method=randr
+</span></span><span class="line"><span class="cl">+adjustment-method=wingdi
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-lat=48.1
+</span></span><span class="line"><span class="cl">-lon=11.6
+</span></span><span class="line"><span class="cl">+lat=30.58
+</span></span><span class="line"><span class="cl">+lon=114.27
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了让它开机就能自动运行，我又写了一个 Powershell 脚本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Start-Process</span> <span class="n">-FilePath</span> <span class="s2">&#34;C:\Users\niall\source\tools\redshift\redshift.exe&#34;</span> <span class="n">-WindowStyle</span> <span class="n">hidden</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>并在 startup 目录下创建快捷方式（ <code>win+r</code> 运行，输入 <code>shell:startup</code>
+进入这个目录），填入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">%</span><span class="n">windir</span><span class="o">%</span>\<span class="n">System32</span>\<span class="n">WindowsPowerShell</span>\<span class="n">v1</span><span class="o">.</span><span class="mi">0</span>\<span class="n">powershell</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">ExecutionPolicy</span> <span class="n">ByPass</span> <span class="o">-</span><span class="n">Command</span> <span class="s2">&#34;&amp; &#39;C:\Users</span><span class="se">\n</span><span class="s2">iall\source</span><span class="se">\t</span><span class="s2">ools</span><span class="se">\r</span><span class="s2">edshift</span><span class="se">\a</span><span class="s2">utostart.ps1&#39;&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样开机后 redshift 会自动启动并按时间来调整屏幕色温。我一直用到现在，感觉还不错。</p>
+<h2 id="3-dot-添加-pdf-tools">3. 添加 pdf-tools</h2>
+<p>虽然一直以来的观念是把任务交给更适合它的工具来完成，但因为笔记一直使用
+Org Mode ，所以如果能直接在 Emacs 中看 PDF 那将是一件非常棒的事情。因为这里就可以充分利用多 Buffer 的优势，可以创建两个水平并列的 Buffer，一边读 PDF 一边写 Org Mode 笔记，也可以在写笔记的时候快速切换到 PDF 进行查阅，而后返回笔记进行编写，中间不会因为切换软件而打乱思路。</p>
+<p>Emacs 有一个著名的包 <a href="https://github.com/vedang/pdf-tools.git">pdf-tools</a> 能出色地完成 PDF 显示的任务。在 Windows
+下编译 pdf-tools 总是一个令人头痛的问题，后来我才发现是我的方法没有掌握好。</p>
+<p>编译 pdf-tools 需要安装 MSYS2 编译工具链，这里选择直接用 winget 安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">winget</span> <span class="n">install</span> <span class="p">-</span><span class="n">-id</span> <span class="n">MSYS2</span><span class="p">.</span><span class="py">MSYS2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装后更新数据源，开始准备编译。打开 mingw64 终端：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># update</span>
+</span></span><span class="line"><span class="cl">pacman -Syu
+</span></span><span class="line"><span class="cl"><span class="c1"># add git to path</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/c/Program<span class="se">\ </span>Files/Git/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home
+</span></span><span class="line"><span class="cl">mkdir src
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> src
+</span></span><span class="line"><span class="cl">git clone https://github.com/vedang/pdf-tools
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> pdf-tools
+</span></span><span class="line"><span class="cl">./server/autobuild
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样直接就能编译出一个 epdfinfo.exe 可执行文件，如果编译失败可能是由于缺少指定的包，使用 pacman 安装再重新编译就行了。</p>
+<p>在 Emacs 中使用 <code>M-x package-install</code> 安装 <code>pdf-tools</code> ，再将上面生成的 epdfinfo.exe 拷贝到 ~/.emacs.d/elpa/pdf-tools-[version]/ 目录下。最后在 Emacs 配置文件中加入下面的设置就完成了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">setenv</span> <span class="s">&#34;PATH&#34;</span> <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;C:\\msys64\\mingw64\\bin;&#34;</span> <span class="p">(</span><span class="nv">getenv</span> <span class="s">&#34;PATH&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">pdf-loader-install</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<figure><img src="/images/emacs_zheteng_n2_2.gif">
+</figure>
+
+<p>补充：因为 pdf-tools 有自己的文档搜索，所以如果装了 <em>Swiper</em> 等搜索插件的话会无法调用，因此需要在 pdf-view-mode 下将原来的 isearch 恢复：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;pdf-view-mode-hook</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-s&#34;</span><span class="p">)</span> <span class="ss">&#39;isearch-forward</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-r&#34;</span><span class="p">)</span> <span class="ss">&#39;isearch-backward</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4-dot-为-org-添加番茄钟">4. 为 Org 添加番茄钟</h2>
+<p>工作时很难一直专心做一件事，经常干累了就走神很长时候，用番茄钟来控制自己的工作与休息，让工作的效率保持在一个高的状态是不错的方法。</p>
+<p>Emacs 中的番茄钟安装很简单，但在 Windows 上无法在倒计时结束的时候弹出提醒，经过查询后使用 Emacs China 论坛上大佬的代码修复了这个问题，整体配置如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">org-pomodoro</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:bind</span> <span class="p">(</span><span class="s">&#34;s-t p&#34;</span> <span class="o">.</span> <span class="nv">org-pomodoro</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-pomodoro-finished-hook</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-notify</span> <span class="s">&#34;A pomodoro is finished, take a break!&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-pomodoro-short-break-finished-hook</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-notify</span> <span class="s">&#34;A short break done, ready a new pomodoro!&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-pomodoro-long-break-finished-hook</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">org-notify</span> <span class="s">&#34;A long break done, ready a new pomodoro!&#34;</span><span class="p">))))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<figure><img src="/images/emacs_zheteng_n2_3.gif">
+</figure>
+
+<h2 id="5-dot-为-org-添加-zotero-链接">5. 为 Org 添加 Zotero 链接</h2>
+<p>在写论文笔记的时候经常需要直接从 Org 文件跳转到 Zotero 相应的论文条目，
+Org Mode 中不支持 <code>zotero://</code> 类型的链接，需要手动添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">org-link-set-parameters</span> <span class="s">&#34;zotero&#34;</span>
+</span></span><span class="line"><span class="cl">                         <span class="nb">:follow</span> <span class="p">(</span><span class="nb">lambda</span> <span class="p">(</span><span class="nv">url</span> <span class="nv">arg</span><span class="p">)</span> <span class="p">(</span><span class="nv">browse-url</span> <span class="p">(</span><span class="nf">format</span> <span class="s">&#34;zotero:%s&#34;</span> <span class="nv">url</span><span class="p">)</span> <span class="nv">arg</span><span class="p">)))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另外需要在 Zotero 中安装 <a href="https://github.com/wshanks/Zutilo.git">Zutilo</a> 插件，并在选项中勾选 <em>copy select item
+links</em> ，这样就能直接在目录对应的论文条目上提取 zotero 链接，再把链接放到笔记中了。</p>
+<h2 id="6-dot-使用-org-download-来快速插入图片">6. 使用 org-download 来快速插入图片</h2>
+<p>虽然大部分时候只用 Org Mode 来处理文字，但免不了会有导出后查看的需求，这时图文并茂常常能让理解更加深刻一些。传统的插入图片的方法要将图片保存到特定目录，再在 Org 笔记中写图片链接，这对于截图、网页图片来说很不友好。 <a href="https://github.com/abo-abo/org-download.git">org-download</a> 能很好地解决这个问题，它可以从链接中下载图片存到本地，再自己插入图片链接，也可以从剪贴板中提取图片，甚至直接调用截图工具。</p>
+<p>在 Windows 下使用 org-download 不那么容易，要先安装 imagemagick 工具和
+irfanview 工具，前者用来保存剪贴板中的图片，后者用来截图。这里有个坑是
+irfanview 的图片保存路径是传统的 cmd 风格，所以要修改一下
+<code>org-download-screensot-file</code> 变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-elisp" data-lang="elisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">org-download</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">org</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:bind</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="s">&#34;&lt;f7&gt;&#34;</span> <span class="o">.</span> <span class="nv">org-download-clipboard</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="s">&#34;&lt;f8&gt;&#34;</span> <span class="o">.</span> <span class="nv">org-download-screenshot</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq-default</span> <span class="nv">org-download-image-dir</span> <span class="s">&#34;C:/Users/niall/OneDrive/note/org/images&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-download-screenshot-method</span> <span class="s">&#34;irfanview /capture=4 /convert=\&#34;%s\&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-download-screenshot-file</span>
+</span></span><span class="line"><span class="cl">   <span class="s">&#34;c:\\Users\\niall\\AppData\\Local\\Temp\\screenshot.png&#34;</span><span class="p">))</span> <span class="c1">;; irfanview do not accept / path</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<figure><img src="/images/emacs_zheteng_n2_4.gif">
+</figure>
+
+<h2 id="写在最后">写在最后</h2>
+<p>现在的 Emacs 已经基本符合我理想中的样子，还有一些有关写程序的自定义配置考虑等后续更充实后放在（三）中发布出来。终于可以暂时不折腾，把精力放在更重要的专业知识和技能的学习中了。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Niall Zhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2024-04-21 17:54
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8A%98%E8%85%BE/">折腾</a>
+          <a href="/tags/emacs/">Emacs</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/tricks/emacs_zheteng_2_2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Emacs 折腾插曲：改进 org-download 截图功能</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/tricks/emacs_zheteng/">
+            <span class="next-text nav-default">Emacs 折腾小记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:niazhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yhzhoucs" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

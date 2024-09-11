@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>算法笔记其一：树（更新中） - Niall&#39;s Blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Niall Zhou" /><meta name="description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.126.3 with theme even" />
+
+
+<link rel="canonical" href="http://niallzhou.cfd/post/note/algorithm-note-1-tree/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:url" content="http://niallzhou.cfd/post/note/algorithm-note-1-tree/">
+  <meta property="og:site_name" content="Niall&#39;s Blog">
+  <meta property="og:title" content="算法笔记其一：树（更新中）">
+  <meta property="og:description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2024-05-10T23:13:46+08:00">
+    <meta property="article:modified_time" content="2024-05-12T00:12:17+08:00">
+    <meta property="article:tag" content="Cpp">
+    <meta property="article:tag" content="算法">
+
+  <meta itemprop="name" content="算法笔记其一：树（更新中）">
+  <meta itemprop="description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有">
+  <meta itemprop="datePublished" content="2024-05-10T23:13:46+08:00">
+  <meta itemprop="dateModified" content="2024-05-12T00:12:17+08:00">
+  <meta itemprop="wordCount" content="2007">
+  <meta itemprop="keywords" content="Cpp,算法">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="算法笔记其一：树（更新中）">
+  <meta name="twitter:description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Niall&#39;s Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于我</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Niall&#39;s Blog</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于我</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">算法笔记其一：树（更新中）</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-05-10 23:13 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+          <span class="more-meta"> 约 2007 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#知识点速查">知识点速查</a></li>
+        <li><a href="#中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="知识点速查">知识点速查</h2>
+<ul>
+<li>构造二叉树 <a href="#org-target--knowledge1">Click</a></li>
+</ul>
+<h2 id="中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</h2>
+<p>这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有意思的是考虑代码的简洁与优雅程度。</p>
+<p>首先，来讲一下算法思路。很简单，把树的构造看作是一个递归的过程。对于中序与前序，我们都知道中序序列是先遍历左子树，然后遍历根结点，再遍历右子树。而前序序列是先遍历根结点，然后遍历左子树，再遍历右子树。</p>
+<p>那么怎么把它转化成一个递归问题呢？ 我们知道左子树也是通过左子树的中序序列和它的前序序列构造，右子树同理，那么只要在输入的中序序列中找到左子树的中序序列、在输入的前序序列中找到左子树的前序序列，那么就可以转化成与原问题相同的问题。而这一点是可以轻松做到的，通过前序的遍历顺序可以知道，它第一个遍历的一定是根结点，我们直接拿着这个根结点去中序序列中查找，找到根结点的位置，这样中序序列就被一分为二了，前半部是左子树的中序序列，后半部分是右子树的中序序列。同时，我们知道了左子树的大小（即其中结点的数量）。又因为前序序列是按“中左右”的顺序遍历，跳过“中”之前理所当然是“左”了，于是左子树的前序序列就是当前位置前进一位（跳过根结点）的位置开始，一直数左子树大小个元素。</p>
+<p>这样，我们就有了左子树的中序序列和前序序列。同理，我们找到右子树的中序序列与前序序列。这时，问题就变成了非常简单的三步：</p>
+<ol>
+<li>构造左子树与右子树</li>
+<li>创建根结点</li>
+<li>连接根结点与左子树和右子树</li>
+</ol>
+<p>按这个思路，理想中的代码应该是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">TreeNode</span> <span class="o">*</span><span class="nf">build</span><span class="p">(</span><span class="n">inorder</span><span class="p">,</span> <span class="n">preorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// trivial handlings...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">root_val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">inorder_left_tree</span><span class="p">,</span> <span class="n">preorder_left_tree</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">inorder_right_tree</span><span class="p">,</span> <span class="n">preorder_right_tree</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 Python 中这种风格能轻易地通过切片做到，然而 C++ 中却不支持这种操作。从官方题解来看，为了顺利递归不得不再定义一个辅助函数，这个辅助函数有多至 6 个参数，包括中序序列、前序序列、中序序列的范围（两个参数）、前序序列的范围。这种写法看上去不够简洁，直观上能想到的改进方法是定义一个聚合类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">Iter</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">OrderRange</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Iter</span> <span class="n">beg</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Iter</span> <span class="n">end</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后辅助函数只用接收两个这样的 <code>OrderRange</code> 。但这样是行不通的，因为在递归的过程中总要对范围的有效性进行限制，比如在范围往前移动时，我们要限制它不能超过原来的序列末尾。这么来看，只有两个 <code>OrderRange</code> 是不够的，再增加参数个数明显违背了一开始追求简洁的初心。</p>
+<p>我翻了翻 2020 年提交的代码，里面为了简洁程度居然牺牲了大量的空间和时间：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">buildTree</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">preorder</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">inorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">leftsize</span> <span class="o">=</span> <span class="n">ranges</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">inorder</span><span class="p">,</span> <span class="n">preorder</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 直接复制到一个新的 vector 里
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">preorder_left</span> <span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">leftsize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">preorder_right</span> <span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">leftsize</span><span class="p">,</span> <span class="n">preorder</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">inorder_left</span> <span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">leftsize</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">inorder_right</span> <span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="n">leftsize</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">left</span> <span class="o">=</span> <span class="n">buildTree</span><span class="p">(</span><span class="n">preorder_left</span><span class="p">,</span> <span class="n">inorder_left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">right</span> <span class="o">=</span> <span class="n">buildTree</span><span class="p">(</span><span class="n">preorder_right</span><span class="p">,</span> <span class="n">inorder_right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nf">TreeNode</span><span class="p">(</span><span class="n">preorder</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在对 C++ 的认识进一步提高之后，我想出了一种还凑合的写法。我们都知道
+C++ 有一个叫 Range 的第三方库，现在已经更新到了 <a href="https://github.com/ericniebler/range-v3">range-v3</a> 。 C++20里这个库已经被合并进了标准库 std 中。 Range 库在处理序列方面有强大的能力。如今的 range-v3 已经支持直接的切片操作（通过 ranges::slice_view 实现），但很遗憾标准库里并没有收录这部分的内容。于是，我转而使用
+ranges::subrange 来实现。代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">_It</span><span class="p">,</span> <span class="k">typename</span> <span class="n">_Se</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">build_recursive</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="o">&lt;</span><span class="n">_It</span><span class="p">,</span> <span class="n">_Se</span><span class="o">&gt;</span> <span class="n">preorder</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="o">&lt;</span><span class="n">_It</span><span class="p">,</span> <span class="n">_Se</span><span class="o">&gt;</span> <span class="n">inorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">root_val</span> <span class="o">=</span> <span class="n">preorder</span><span class="p">.</span><span class="n">front</span><span class="p">();</span> <span class="c1">// 根结点为前序序列的第一个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">inorder</span><span class="p">,</span> <span class="n">root_val</span><span class="p">);</span> <span class="c1">// 在中序序列中找到根结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">auto</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">it</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">root_val</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 构造左子树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">build_recursive</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">preorder</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">preorder</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">offset</span><span class="p">,</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 构造右子树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">build_recursive</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">preorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">preorder</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">preorder</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">offset</span><span class="p">,</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="nf">buildTree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">preorder</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">inorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">build_recursive</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">(</span><span class="n">preorder</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">(</span><span class="n">inorder</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>虽然也用到了辅助函数，但毕竟原函数里只用一行代码去调用辅助函数，也马马虎虎能称得上简洁。辅助函数是预想中的只接受两个序列的形式，内容也与上面描述的伪代码一致。</p>
+<p>再来说说通过中序序列与后序序列构造二叉树。按照与上面差不多的思路，中序是“左中右”，后序是“左右中”，同样我们先找到“中”。可以知道根结点就是后序序列的最后一个元素，这时我们拿着最后一个元素去中序序列中找它的位置，找到后同样可以知道左子树的中序序列与右子树的中序序列。我们再用左子树中序序列的长度去切后序序列，得到左子树的后序序列与右子树的后序序列。这时，问题又转化成了它本身。这里不赘述，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">_It</span><span class="p">,</span> <span class="k">typename</span> <span class="n">_Se</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">build_recursive</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="o">&lt;</span><span class="n">_It</span><span class="p">,</span> <span class="n">_Se</span><span class="o">&gt;</span> <span class="n">inorder</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="o">&lt;</span><span class="n">_It</span><span class="p">,</span> <span class="n">_Se</span><span class="o">&gt;</span> <span class="n">postorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">root_val</span> <span class="o">=</span> <span class="n">postorder</span><span class="p">.</span><span class="n">back</span><span class="p">();</span> <span class="c1">// 根结节为后序序列的最后一个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">inorder</span><span class="p">,</span> <span class="n">root_val</span><span class="p">);</span> <span class="c1">// 在中序序列中找到根结点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">auto</span> <span class="n">offset</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">it</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">inorder</span><span class="p">[</span><span class="n">offset</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 构造左子树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">build_recursive</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">offset</span><span class="p">,</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">postorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">postorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">offset</span><span class="p">,</span> <span class="n">postorder</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 构造右子树
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">build_recursive</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">inorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">offset</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">inorder</span><span class="p">.</span><span class="n">end</span><span class="p">()</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">next</span><span class="p">(</span><span class="n">postorder</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">offset</span><span class="p">,</span> <span class="n">postorder</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">prev</span><span class="p">(</span><span class="n">postorder</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">1</span><span class="p">,</span> <span class="n">postorder</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">root</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">TreeNode</span><span class="o">*</span> <span class="nf">buildTree</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">inorder</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">postorder</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">build_recursive</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">(</span><span class="n">inorder</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">subrange</span><span class="p">(</span><span class="n">postorder</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>提交结果：</p>
+<figure><img src="/images/algorithm-note-1-tree_1.png">
+</figure>
+
+<p><strong>知识点归纳</strong> <span class="org-target" id="org-target--knowledge1"></span></p>
+<p>std::ranges::subrange 是一个子序列的类，它可以接受一个 range 这时子序列就是给定的序列全部，也可以接受两个迭代器，分别指向子序列的头部和子序列的 <strong>尾部下一个位置</strong> （通常叫 setinel ）。它的模板参数 _It 要 model
+概念 <code>std::input_or_output_iterator</code> 这个概念规定了一个迭代器要满足的条件。而模板参数 _Se 要 model 概念 <code>std::sentinel_for</code> ，它约束了
+sentinel 与迭代器类型之间的关系。</p>
+<p>std::ranges::next 与 std::ranges::prev 可以帮助我们安全地移动迭代器，前提是要用它三个参数的重载形式，第一个参数给定要移动的迭代器，第二个参数给定移动的距离，第三个参数给定移动的边界。</p>
+<p>参考列表</p>
+<ul>
+<li><a href="https://en.cppreference.com/w/cpp/ranges/subrange">std::ranges::subrange</a></li>
+<li><a href="https://en.cppreference.com/w/cpp/iterator/ranges/next">std::ranges::next</a> <a href="https://en.cppreference.com/w/cpp/iterator/ranges/prev">std::ranges::prev</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Niall Zhou</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2024-05-12 00:12
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/cpp/">cpp</a>
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/note/cpp-openmp-array-reduce/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">使用 OpenMP 做数组聚合（ Reduce ）</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/tricks/emacs_zheteng_2_2/">
+            <span class="next-text nav-default">Emacs 折腾插曲：改进 org-download 截图功能</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:niazhou@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/yhzhoucs" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
