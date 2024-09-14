@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Emacs 折腾插曲：改进 org-download 截图功能 - Niall&#39;s Blog</title>
@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.126.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
-<link rel="canonical" href="http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/" />
+<link rel="canonical" href="http://localhost:1313/post/tricks/emacs_zheteng_2_2/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,28 +39,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:url" content="http://niallzhou.cfd/post/tricks/emacs_zheteng_2_2/">
-  <meta property="og:site_name" content="Niall&#39;s Blog">
-  <meta property="og:title" content="Emacs 折腾插曲：改进 org-download 截图功能">
-  <meta property="og:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2024-04-25T22:37:14+08:00">
-    <meta property="article:modified_time" content="2024-04-25T23:38:28+08:00">
-    <meta property="article:tag" content="折腾">
-    <meta property="article:tag" content="Emacs">
-    <meta property="article:tag" content="Elisp">
-
-  <meta itemprop="name" content="Emacs 折腾插曲：改进 org-download 截图功能">
-  <meta itemprop="description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
-  <meta itemprop="datePublished" content="2024-04-25T22:37:14+08:00">
-  <meta itemprop="dateModified" content="2024-04-25T23:38:28+08:00">
-  <meta itemprop="wordCount" content="873">
-  <meta itemprop="keywords" content="折腾,Emacs,Elisp">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Emacs 折腾插曲：改进 org-download 截图功能">
-  <meta name="twitter:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗">
+<meta property="og:title" content="Emacs 折腾插曲：改进 org-download 截图功能" />
+<meta property="og:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/tricks/emacs_zheteng_2_2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-04-25T22:37:14+08:00" />
+<meta property="article:modified_time" content="2024-04-25T23:38:28+08:00" />
+<meta itemprop="name" content="Emacs 折腾插曲：改进 org-download 截图功能">
+<meta itemprop="description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗"><meta itemprop="datePublished" content="2024-04-25T22:37:14+08:00" />
+<meta itemprop="dateModified" content="2024-04-25T23:38:28+08:00" />
+<meta itemprop="wordCount" content="873">
+<meta itemprop="keywords" content="折腾,Emacs,Elisp," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Emacs 折腾插曲：改进 org-download 截图功能"/>
+<meta name="twitter:description" content="如 Emacs 折腾小记（二） 中所说，利用 org-download &#43; irfanview 在 windows 下实现截图并插入 Org 笔记是十分顺手的，但在使用过程中发现了几个问题： 它在截图的时候没办法隐藏当前的 Emacs 窗"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -328,7 +318,7 @@ yuh/org-download-screenshot-wrapper 上去。因为我想能通过命令来控�
       <nav class="post-nav">
         <a class="prev" href="/post/note/algorithm-note-1-tree/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">算法笔记其一：树（更新中）</span>
+            <span class="prev-text nav-default">C&#43;&#43;20出来了，怎么构造二叉树？</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/tricks/emacs_zheteng_2/">

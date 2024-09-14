@@ -2,45 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>笔记 on Niall&#39;s Blog</title>
-    <link>http://niallzhou.cfd/categories/%E7%AC%94%E8%AE%B0/</link>
+    <link>http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 笔记 on Niall&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 06 Sep 2024 13:39:19 +0800</lastBuildDate>
-    <atom:link href="http://niallzhou.cfd/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Sep 2024 17:04:56 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试用算法题整理（持续更新中）</title>
+      <link>http://localhost:1313/post/note/all-for-hiring-ii/</link>
+      <pubDate>Sat, 14 Sep 2024 16:58:05 +0800</pubDate>
+      <guid>http://localhost:1313/post/note/all-for-hiring-ii/</guid>
+      <description>指针 双指针：从两头开始遍历 11. 盛最多水的容器 思路：滑动窗口放置在两端，每次移动 当前较小 的一端。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pub fn max_area(height: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { use std::cmp::Ordering;</description>
+    </item>
     <item>
       <title>面试用知识点梳理</title>
-      <link>http://niallzhou.cfd/post/articles/all-for-hiring/</link>
+      <link>http://localhost:1313/post/note/all-for-hiring/</link>
       <pubDate>Fri, 06 Sep 2024 10:53:13 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/articles/all-for-hiring/</guid>
+      <guid>http://localhost:1313/post/note/all-for-hiring/</guid>
       <description>写在前面 这段时间一直忙于找工作，为了准备面试看了许多博客文章和材料，把笔记用 Org-Mode 的形式记录了下来。文章组织比较混乱，但大体框架与重点内容应当已</description>
     </item>
     <item>
       <title>C&#43;&#43; view 实现探究、 gitea 搭建</title>
-      <link>http://niallzhou.cfd/post/note/whisper-2023-may/</link>
+      <link>http://localhost:1313/post/note/whisper-2023-may/</link>
       <pubDate>Sat, 25 May 2024 15:25:42 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/note/whisper-2023-may/</guid>
+      <guid>http://localhost:1313/post/note/whisper-2023-may/</guid>
       <description>Prelude May, she will stay Resting in my arms again &amp;ndash; April Come She Will, Simon &amp;amp; Garfunkel, Sounds of Silence 不知不觉五月都要过去了，而我所在的城市也迎来了真正的夏天。中午的气温已经攀到了35摄氏度，这种天气</description>
     </item>
     <item>
       <title>使用 OpenMP 做数组聚合（ Reduce ）</title>
-      <link>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</link>
+      <link>http://localhost:1313/post/note/cpp-openmp-array-reduce/</link>
       <pubDate>Sun, 19 May 2024 19:25:50 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/</guid>
+      <guid>http://localhost:1313/post/note/cpp-openmp-array-reduce/</guid>
       <description>最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行</description>
     </item>
     <item>
-      <title>算法笔记其一：树（更新中）</title>
-      <link>http://niallzhou.cfd/post/note/algorithm-note-1-tree/</link>
+      <title>C&#43;&#43;20出来了，怎么构造二叉树？</title>
+      <link>http://localhost:1313/post/note/algorithm-note-1-tree/</link>
       <pubDate>Fri, 10 May 2024 23:13:46 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/note/algorithm-note-1-tree/</guid>
+      <guid>http://localhost:1313/post/note/algorithm-note-1-tree/</guid>
       <description>知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有</description>
     </item>
     <item>
       <title>Hello Fedora</title>
-      <link>http://niallzhou.cfd/post/note/hello-fedora/</link>
+      <link>http://localhost:1313/post/note/hello-fedora/</link>
       <pubDate>Sun, 24 Mar 2024 13:31:39 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/note/hello-fedora/</guid>
+      <guid>http://localhost:1313/post/note/hello-fedora/</guid>
       <description>做了什么 整了个阿里云最便宜的服务器用来学Unix网络编程，系统是 Fedora39。 想着顺便搭一个博客把之前的内容精炼一下搬过来，但中间折腾了</description>
     </item>
   </channel>

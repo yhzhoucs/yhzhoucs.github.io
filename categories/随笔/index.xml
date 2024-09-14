@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>随笔 on Niall&#39;s Blog</title>
-    <link>http://niallzhou.cfd/categories/%E9%9A%8F%E7%AC%94/</link>
+    <link>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</link>
     <description>Recent content in 随笔 on Niall&#39;s Blog</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 07 Apr 2024 00:43:29 +0800</lastBuildDate>
-    <atom:link href="http://niallzhou.cfd/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>群山，夜泳，关于杭州的记忆</title>
-      <link>http://niallzhou.cfd/post/articles/memory_about_hangzhou/</link>
+      <link>http://localhost:1313/post/articles/memory_about_hangzhou/</link>
       <pubDate>Sun, 31 Mar 2024 21:37:54 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/articles/memory_about_hangzhou/</guid>
+      <guid>http://localhost:1313/post/articles/memory_about_hangzhou/</guid>
       <description>山巨大、安静、吸收着。你可以将你的心灵抛给一座山，山会保存它，将它折叠起来，不会将它掷回，如某些溪流那样。溪流就是世界，具有世界一切的刺激和</description>
     </item>
     <item>
       <title>像一块滚石</title>
-      <link>http://niallzhou.cfd/post/articles/self-bio-false/</link>
+      <link>http://localhost:1313/post/articles/self-bio-false/</link>
       <pubDate>Sat, 27 Aug 2022 16:15:54 +0800</pubDate>
-      <guid>http://niallzhou.cfd/post/articles/self-bio-false/</guid>
+      <guid>http://localhost:1313/post/articles/self-bio-false/</guid>
       <description>契机 无聊的契机，学院要求新生写一篇自传性质的文章上交，给的内容提纲无非自我介绍、目标、计划之类，实在老套。遂决定写一篇沾点边的随笔，主要谈石</description>
     </item>
     <item>
       <title>“我时常感到生活在大海上……”</title>
-      <link>http://niallzhou.cfd/post/articles/summer-220715/</link>
+      <link>http://localhost:1313/post/articles/summer-220715/</link>
       <pubDate>Fri, 15 Jul 2022 00:00:00 +0000</pubDate>
-      <guid>http://niallzhou.cfd/post/articles/summer-220715/</guid>
+      <guid>http://localhost:1313/post/articles/summer-220715/</guid>
       <description>注：此文原为notion上发布 J’ai toujours eu l’impression de vivre en haute mer, menacé, au cœur d’un bonheur royal. —Albert Camus L’Été 翻</description>
     </item>
   </channel>

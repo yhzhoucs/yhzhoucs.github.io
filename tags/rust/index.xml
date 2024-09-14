@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Niall&#39;s Blog</title>
+    <link>http://localhost:1313/tags/rust/</link>
+    <description>Recent content in Rust on Niall&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 14 Sep 2024 17:04:23 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试用算法题整理（持续更新中）</title>
+      <link>http://localhost:1313/post/note/all-for-hiring-ii/</link>
+      <pubDate>Sat, 14 Sep 2024 16:58:05 +0800</pubDate>
+      <guid>http://localhost:1313/post/note/all-for-hiring-ii/</guid>
+      <description>指针 双指针：从两头开始遍历 11. 盛最多水的容器 思路：滑动窗口放置在两端，每次移动 当前较小 的一端。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pub fn max_area(height: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { use std::cmp::Ordering;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>使用 OpenMP 做数组聚合（ Reduce ） - Niall&#39;s Blog</title>
@@ -23,10 +23,10 @@
 
 
 
-<meta name="generator" content="Hugo 0.126.3 with theme even" />
+<meta name="generator" content="Hugo 0.124.1 with theme even" />
 
 
-<link rel="canonical" href="http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/" />
+<link rel="canonical" href="http://localhost:1313/post/note/cpp-openmp-array-reduce/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,27 +39,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:url" content="http://niallzhou.cfd/post/note/cpp-openmp-array-reduce/">
-  <meta property="og:site_name" content="Niall&#39;s Blog">
-  <meta property="og:title" content="使用 OpenMP 做数组聚合（ Reduce ）">
-  <meta property="og:description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2024-05-19T19:25:50+08:00">
-    <meta property="article:modified_time" content="2024-05-19T21:44:28+08:00">
-    <meta property="article:tag" content="Cpp">
-    <meta property="article:tag" content="Openmp">
-
-  <meta itemprop="name" content="使用 OpenMP 做数组聚合（ Reduce ）">
-  <meta itemprop="description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行">
-  <meta itemprop="datePublished" content="2024-05-19T19:25:50+08:00">
-  <meta itemprop="dateModified" content="2024-05-19T21:44:28+08:00">
-  <meta itemprop="wordCount" content="1657">
-  <meta itemprop="keywords" content="Cpp,Openmp">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="使用 OpenMP 做数组聚合（ Reduce ）">
-  <meta name="twitter:description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行">
+<meta property="og:title" content="使用 OpenMP 做数组聚合（ Reduce ）" />
+<meta property="og:description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/note/cpp-openmp-array-reduce/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-05-19T19:25:50+08:00" />
+<meta property="article:modified_time" content="2024-05-19T21:44:28+08:00" />
+<meta itemprop="name" content="使用 OpenMP 做数组聚合（ Reduce ）">
+<meta itemprop="description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行"><meta itemprop="datePublished" content="2024-05-19T19:25:50+08:00" />
+<meta itemprop="dateModified" content="2024-05-19T21:44:28+08:00" />
+<meta itemprop="wordCount" content="1657">
+<meta itemprop="keywords" content="cpp,openmp," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="使用 OpenMP 做数组聚合（ Reduce ）"/>
+<meta name="twitter:description" content="最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -456,7 +447,7 @@
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/note/algorithm-note-1-tree/">
-            <span class="next-text nav-default">算法笔记其一：树（更新中）</span>
+            <span class="next-text nav-default">C&#43;&#43;20出来了，怎么构造二叉树？</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
