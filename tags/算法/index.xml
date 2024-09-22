@@ -6,14 +6,14 @@
     <description>Recent content in 算法 on Niall&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 14 Sep 2024 17:04:56 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 Sep 2024 17:07:03 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>面试用算法题整理（持续更新中）</title>
       <link>http://localhost:1313/post/note/all-for-hiring-ii/</link>
       <pubDate>Sat, 14 Sep 2024 16:58:05 +0800</pubDate>
       <guid>http://localhost:1313/post/note/all-for-hiring-ii/</guid>
-      <description>指针 双指针：从两头开始遍历 11. 盛最多水的容器 思路：滑动窗口放置在两端，每次移动 当前较小 的一端。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pub fn max_area(height: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { use std::cmp::Ordering;</description>
+      <description>双指针 从两头开始遍历 11. 盛最多水的容器 思路：滑动窗口放置在两端，每次移动 当前较小 的一端。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 pub fn max_area(height: Vec&amp;lt;i32&amp;gt;) -&amp;gt; i32 { use std::cmp::Ordering; let mut i</description>
     </item>
     <item>
       <title>面试用知识点梳理</title>
