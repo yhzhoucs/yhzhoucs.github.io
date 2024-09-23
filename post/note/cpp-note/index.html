@@ -3,7 +3,7 @@
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>C&#43;&#43;20 出来了，怎么构造二叉树？ - Niall&#39;s Blog</title>
+  <title> - Niall&#39;s Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Niall Zhou" /><meta name="description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="Niall Zhou" /><meta name="description" content="C&#43;&#43;20 出来了，怎么构造二叉树？ 知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.124.0 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/note/algorithm-note-1-tree/" />
+<link rel="canonical" href="http://localhost:1313/post/note/cpp-note/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,18 +39,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="C&#43;&#43;20 出来了，怎么构造二叉树？" />
-<meta property="og:description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="C&#43;&#43;20 出来了，怎么构造二叉树？ 知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/note/algorithm-note-1-tree/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2024-05-10T23:13:46+08:00" />
-<meta property="article:modified_time" content="2024-09-14T17:04:56+08:00" />
-<meta itemprop="name" content="C&#43;&#43;20 出来了，怎么构造二叉树？">
-<meta itemprop="description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有"><meta itemprop="datePublished" content="2024-05-10T23:13:46+08:00" />
-<meta itemprop="dateModified" content="2024-09-14T17:04:56+08:00" />
-<meta itemprop="wordCount" content="2007">
-<meta itemprop="keywords" content="cpp,算法," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="C&#43;&#43;20 出来了，怎么构造二叉树？"/>
-<meta name="twitter:description" content="知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有"/>
+<meta property="og:url" content="http://localhost:1313/post/note/cpp-note/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-09-23T20:22:51+08:00" />
+<meta property="article:modified_time" content="2024-09-23T20:22:51+08:00" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content="C&#43;&#43;20 出来了，怎么构造二叉树？ 知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本"><meta itemprop="datePublished" content="2024-09-23T20:22:51+08:00" />
+<meta itemprop="dateModified" content="2024-09-23T20:22:51+08:00" />
+<meta itemprop="wordCount" content="3688">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="C&#43;&#43;20 出来了，怎么构造二叉树？ 知识点速查 构造二叉树 Click 中序与前序或后序联合构造二叉树 这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -127,15 +127,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">C&#43;&#43;20 出来了，怎么构造二叉树？</h1>
+      <h1 class="post-title"></h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2024-05-10 23:13 </span>
-        <div class="post-category">
-            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
-            </div>
-          <span class="more-meta"> 约 2007 字 </span>
-          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        <span class="post-time"> 2024-09-23 20:22 </span>
+        
+          <span class="more-meta"> 约 3688 字 </span>
+          <span class="more-meta"> 预计阅读 8 分钟 </span>
         
       </div>
     </header>
@@ -147,8 +145,13 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#知识点速查">知识点速查</a></li>
-        <li><a href="#中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</a></li>
+        <li><a href="#algorithm-note-1-tree">C++20 出来了，怎么构造二叉树？</a>
+          <ul>
+            <li><a href="#知识点速查">知识点速查</a></li>
+            <li><a href="#中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</a></li>
+          </ul>
+        </li>
+        <li><a href="#cpp-openmp-array-reduce">使用 OpenMP 做数组聚合（ Reduce ）</a></li>
       </ul>
     </li>
   </ul>
@@ -156,11 +159,12 @@
   </div>
 </div>
     <div class="post-content">
-      <h2 id="知识点速查">知识点速查</h2>
+      <h2 id="algorithm-note-1-tree">C++20 出来了，怎么构造二叉树？</h2>
+<h3 id="知识点速查">知识点速查</h3>
 <ul>
 <li>构造二叉树 <a href="#org-target--knowledge1">Click</a></li>
 </ul>
-<h2 id="中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</h2>
+<h3 id="中序与前序或后序联合构造二叉树">中序与前序或后序联合构造二叉树</h3>
 <p>这算是经典题目了吧，本科算法课上学到树这一节时的必做题，题目本身没什么难度，但这里比较有意思的是考虑代码的简洁与优雅程度。</p>
 <p>首先，来讲一下算法思路。很简单，把树的构造看作是一个递归的过程。对于中序与前序，我们都知道中序序列是先遍历左子树，然后遍历根结点，再遍历右子树。而前序序列是先遍历根结点，然后遍历左子树，再遍历右子树。</p>
 <p>那么怎么把它转化成一个递归问题呢？ 我们知道左子树也是通过左子树的中序序列和它的前序序列构造，右子树同理，那么只要在输入的中序序列中找到左子树的中序序列、在输入的前序序列中找到左子树的前序序列，那么就可以转化成与原问题相同的问题。而这一点是可以轻松做到的，通过前序的遍历顺序可以知道，它第一个遍历的一定是根结点，我们直接拿着这个根结点去中序序列中查找，找到根结点的位置，这样中序序列就被一分为二了，前半部是左子树的中序序列，后半部分是右子树的中序序列。同时，我们知道了左子树的大小（即其中结点的数量）。又因为前序序列是按“中左右”的顺序遍历，跳过“中”之前理所当然是“左”了，于是左子树的前序序列就是当前位置前进一位（跳过根结点）的位置开始，一直数左子树大小个元素。</p>
@@ -379,6 +383,274 @@ sentinel 与迭代器类型之间的关系。</p>
 <li><a href="https://en.cppreference.com/w/cpp/ranges/subrange">std::ranges::subrange</a></li>
 <li><a href="https://en.cppreference.com/w/cpp/iterator/ranges/next">std::ranges::next</a> <a href="https://en.cppreference.com/w/cpp/iterator/ranges/prev">std::ranges::prev</a></li>
 </ul>
+<h2 id="cpp-openmp-array-reduce">使用 OpenMP 做数组聚合（ Reduce ）</h2>
+<p>最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 <strong>MPI_Allreduce</strong> 将多个分布式结点（或进程）上的数组进行聚合，然后再分发给每个结点。 <strong>MPI_Reduce</strong> 则不进行分发操作而只是把其他进程上的数组聚合到根进程上。聚合可以是数组的每个对应的元素进行相加相乘等等常用的二元操作。</p>
+<p>但这样的操作在轻量级的 OpenMP 线程并行中如何实现呢？ OpenMP 本身提供了一些用于聚合的宏，那就是 <code>reduction(reduction-identifier:list)</code> ，它可用于简单的变量聚合操作。比如，我有一个超大的数组：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;random&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;ranges&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 生成一个带 1000 个随机数的 std::vector&lt;int&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">nums</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">random_device</span> <span class="n">rd</span><span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">mt19937</span> <span class="n">rng</span><span class="p">{</span> <span class="n">rd</span><span class="p">()</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">uniform_int_distribution</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dist</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">nums</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">dist</span><span class="p">(</span><span class="n">rng</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在想并行地找到其中最大的元素，用 OpenMP 可以这么写：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">max_value</span><span class="p">{};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#pragma omp parallel for reduction(max : max_value)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_value</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_value</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>指定聚合的操作为 <code>max</code> ，聚合的变量名为 <code>max_value</code> ，这样在每个线程内部取最大值的操作执行完毕后，程序还将把多个线程之间的最大值再比一个大小，获得全体元素的最大值。</p>
+<p>事实上，实现这种功能或许用不到 OpenMP ，因为现在的 C++ 已经在标准库里支持这种并行查找最大值的功能了，那就是使用 <code>std::max_element</code> ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;execution&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用标准库来并行查找最大值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="o">*</span><span class="n">std</span><span class="o">::</span><span class="n">max_element</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">par</span><span class="p">,</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过指定执行策略为 <code>std::execution::par</code> ，我们把求一个数组中最大元素的执行模式变成了并行。注意， <code>std::max_element</code> 返回的是最大元素对应的
+<strong>迭代器</strong> ，要解引用才能获得最大元素的值。</p>
+<p>还应注意，当前用于 Range 的取最大值操作 <code>std::ranges::max_element</code> 还不支持指定执行模式，这也是我没有直接用这个函数的原因。</p>
+<p>那么我如果有一个更复杂的需求，比如将多个线程中的数组按位置聚合到一个数组里去呢？事实上这种需求并不罕见，比如每个线程都要对同一个数组做修改，由于冲突写问题无法将这个数组共享在多个线程之间，而在写的时候加锁这种方法又对并行性破坏太大，这时将每个线程本地的数组聚合起来的操作就显得重要了。因为我可以在每个线程本地创建一个数组，本地的数组不存在冲突写问题，而在线程执行完之后将本地数组聚合到全局数组上去，这个聚合操作可以是加锁的。这时就把开销最大的计算操作并行起来，而最后的串行聚合的操作开销就微不足道了。</p>
+<p>举个例子，比如我想统计上面 nums 数组元素的分布情况，即在 0~99,
+100~199, &hellip;, 900~999 这十个区间里的各有多少个元素。按上述的方法可以这样来写：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">cnt</span><span class="p">[</span><span class="mi">10</span><span class="p">]{};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#pragma omp parallel
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 创建线程本地的计数数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">local_cnt</span><span class="p">[</span><span class="mi">10</span><span class="p">]{};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#pragma omp for schedule(static)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">++</span><span class="n">local_cnt</span><span class="p">[</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 在临界区中进行累加聚合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#pragma omp critical
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="n">local_cnt</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">cnt</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码中的 transormer 函数用到了它下面的重载形式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">template&lt; ranges::input_range R1,
+</span></span><span class="line"><span class="cl">          ranges::input_range R2,
+</span></span><span class="line"><span class="cl">          std::weakly_incrementable O,
+</span></span><span class="line"><span class="cl">          std::copy_constructible F,
+</span></span><span class="line"><span class="cl">          class Proj1 = std::identity, class Proj2 = std::identity &gt;
+</span></span><span class="line"><span class="cl">requires std::indirectly_writable&lt;O,
+</span></span><span class="line"><span class="cl">             std::indirect_result_t&lt;F&amp;,
+</span></span><span class="line"><span class="cl">                 std::projected&lt;ranges::iterator_t&lt;R1&gt;, Proj1&gt;,
+</span></span><span class="line"><span class="cl">                 std::projected&lt;ranges::iterator_t&lt;R2&gt;, Proj2&gt;&gt;&gt;
+</span></span><span class="line"><span class="cl">constexpr binary_transform_result&lt;ranges::borrowed_iterator_t&lt;R1&gt;,
+</span></span><span class="line"><span class="cl">                                  ranges::borrowed_iterator_t&lt;R2&gt;, O&gt;
+</span></span><span class="line"><span class="cl">    transform( R1&amp;&amp; r1, R2&amp;&amp; r2, O result, F binary_op,
+</span></span><span class="line"><span class="cl">               Proj1 proj1 = {}, Proj2 proj2 = {} );
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>摘自 <a href="https://en.cppreference.com/w/cpp/algorithm/ranges/transform">cppreference</a> 。</p>
+<p>它接收两个 range ，对它们对应的每个元素调用 binary_op 后写到 result 所指的迭代器里。后面的两个投影函数分别是在两个 range 上进行投影。这里一个最大的坑是 <strong>result 是一个迭代器</strong> 。这意味着下面的方法是错误的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 将 vec2 累加到 vec1 上
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 下面的方法是错误的！
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">vec1</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span> <span class="c1">// 错误！
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是因为 vec1 并不是一个迭代器，正确的写法是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 将 vec2 累加到 vec1 上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">vec1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span> <span class="c1">// 正确
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者新建一个 std::vector 来存结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">vec3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">vec3</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>POD 的数组之所以可行是因为数组名作为变量时本身就是一个指针（迭代器）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">arr1</span><span class="p">[</span><span class="mi">10</span><span class="p">]{};</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">arr2</span><span class="p">[</span><span class="mi">10</span><span class="p">]{};</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 将 arr2 累加到 arr1 上
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">,</span> <span class="n">arr1</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span> <span class="c1">// 正确
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 显式地指名这是一个指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">arr1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span> <span class="c1">// 正确
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 直接包装成一个迭代器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">arr1</span><span class="p">,</span> <span class="n">arr2</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">arr1</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span> <span class="c1">// 正确
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>为了避免犯错，还是使用下面两种写法比较好。</p>
+<p>于是，我们能归纳出一个模板出来：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">;</span> <span class="c1">// int 可以替换成任意类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#pragma omp parallel
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 创建线程本地的计数数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">local_data</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 在下面进行复杂的计算操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 注意操作只能更新 local_data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 在临界区中进行累加聚合
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#pragma omp critical
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// std::plus&lt;&gt;{} 可以替换成任意二元运算
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">ranges</span><span class="o">::</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">local_data</span><span class="p">,</span> <span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">plus</span><span class="o">&lt;&gt;</span><span class="p">{});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个模板可以用在很多类似的场景中。有人可能会问为什么不用 OpenMP 提供的自定义 reduction 特性，即 <code>#pragma omp declare reduction</code> ，我觉得两种方法都可以，但如果只做数组的聚合，那么显然上面的方法要更加简洁一些。如果是在自定义的类上做聚合，那应当去用 OpenMP 提供的这个特性。</p>
+<p>有始有终，让我们输出上面数组元素分布情况的统计结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">views</span><span class="o">::</span><span class="n">iota</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&#34;{}~{}: {}&#34;</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cnt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果如下：</p>
+<figure><img src="/images/cpp-openmp-array-reduce_1.png">
+</figure>
+
 
     </div>
 
@@ -390,7 +662,7 @@ sentinel 与迭代器类型之间的关系。</p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2024-09-14 17:04
+        2024-09-23 20:22
         
     </span>
   </p>
@@ -401,18 +673,11 @@ sentinel 与迭代器类型之间的关系。</p>
   </p>
 </div>
 <footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/cpp/">cpp</a>
-          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
-          </div>
+      
       <nav class="post-nav">
-        <a class="prev" href="/post/note/cpp-openmp-array-reduce/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">使用 OpenMP 做数组聚合（ Reduce ）</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/tricks/emacs_zheteng_2_2/">
-            <span class="next-text nav-default">Emacs 折腾插曲：改进 org-download 截图功能</span>
+        
+        <a class="next" href="/post/articles/me-and-magdalena/">
+            <span class="next-text nav-default">Me &amp; Magdalena ——巴洛克流行于我</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

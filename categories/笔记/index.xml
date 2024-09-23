@@ -37,7 +37,7 @@
       <description>最近写代码遇到的一个比较实用的问题，即怎样使用 OpenMP 来做多个数组的同步聚合。我们都知道 MPI 编程中有一个函数 MPI_Allreduce 将多个分布式结点（或进程）上的数组进行</description>
     </item>
     <item>
-      <title>C&#43;&#43;20出来了，怎么构造二叉树？</title>
+      <title>C&#43;&#43;20 出来了，怎么构造二叉树？</title>
       <link>http://localhost:1313/post/note/algorithm-note-1-tree/</link>
       <pubDate>Fri, 10 May 2024 23:13:46 +0800</pubDate>
       <guid>http://localhost:1313/post/note/algorithm-note-1-tree/</guid>
