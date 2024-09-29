@@ -6,8 +6,15 @@
     <description>Recent content on Niall&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Sep 2024 20:06:56 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 30 Sep 2024 02:31:54 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>国内如何安装 Haskell 运行环境 (Windows)</title>
+      <link>http://localhost:1313/post/tricks/install_haskell_env/</link>
+      <pubDate>Sun, 29 Sep 2024 21:31:38 +0800</pubDate>
+      <guid>http://localhost:1313/post/tricks/install_haskell_env/</guid>
+      <description>缘起 对于函数式编程这么多年以来我一直处于一个久仰大名但从未接触的状态，直到最近几年开始折腾 Emacs 、尝试去写 Emacs Lisp 代码的时候，才算是初次伸手触摸到了</description>
+    </item>
     <item>
       <title>Me &amp; Magdalena ——巴洛克流行于我</title>
       <link>http://localhost:1313/post/articles/me-and-magdalena/</link>
