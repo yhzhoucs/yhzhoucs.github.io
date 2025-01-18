@@ -1,0 +1,189 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>折腾路漫漫，我的 Arch Linux 之旅 - Niall's Blog</title>
+<meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=Cache-Control content="no-transform"><meta http-equiv=Cache-Control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Niall Zhou"><meta name=description content="Arch ? 没搞错吧！ 其实在很多年前我就听闻了 Arch Linux 的大名，当时的我应该连 Emacs 都是初学，连一行 Elisp 代码都不会写呢。没记错的话当时应该是在看 Emacs 的教学视频，怎"><meta name=keywords content="Hugo,theme,even"><meta name=generator content="Hugo 0.124.1 with theme even"><link rel=canonical href=http://niallzhou.cfd/post/tricks/my_arch_linux_tour/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="折腾路漫漫，我的 Arch Linux 之旅"><meta property="og:description" content="Arch ? 没搞错吧！ 其实在很多年前我就听闻了 Arch Linux 的大名，当时的我应该连 Emacs 都是初学，连一行 Elisp 代码都不会写呢。没记错的话当时应该是在看 Emacs 的教学视频，怎"><meta property="og:type" content="article"><meta property="og:url" content="http://niallzhou.cfd/post/tricks/my_arch_linux_tour/"><meta property="article:section" content="post"><meta property="article:published_time" content="2025-01-18T18:29:59+08:00"><meta property="article:modified_time" content="2025-01-18T19:38:48+08:00"><meta itemprop=name content="折腾路漫漫，我的 Arch Linux 之旅"><meta itemprop=description content="Arch ? 没搞错吧！ 其实在很多年前我就听闻了 Arch Linux 的大名，当时的我应该连 Emacs 都是初学，连一行 Elisp 代码都不会写呢。没记错的话当时应该是在看 Emacs 的教学视频，怎"><meta itemprop=datePublished content="2025-01-18T18:29:59+08:00"><meta itemprop=dateModified content="2025-01-18T19:38:48+08:00"><meta itemprop=wordCount content="3239"><meta itemprop=keywords content="折腾,"><meta name=twitter:card content="summary"><meta name=twitter:title content="折腾路漫漫，我的 Arch Linux 之旅"><meta name=twitter:description content="Arch ? 没搞错吧！ 其实在很多年前我就听闻了 Arch Linux 的大名，当时的我应该连 Emacs 都是初学，连一行 Elisp 代码都不会写呢。没记错的话当时应该是在看 Emacs 的教学视频，怎"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Niall's Blog</a></div><div class=mobile-navbar-icon><span></span>
+<span></span>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>主页</li></a><a href=/timeline/><li class=mobile-menu-item>时间线</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/about/><li class=mobile-menu-item>关于我</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Niall's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>主页</a></li><li class=menu-item><a class=menu-item-link href=/timeline/>时间线</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于我</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>折腾路漫漫，我的 Arch Linux 之旅</h1><div class=post-meta><span class=post-time>2025-01-18 18:29</span><div class=post-category><a href=/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/>小技巧</a></div><span class=more-meta>约 3239 字 </span><span class=more-meta>预计阅读 7 分钟</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#arch-没搞错吧>Arch ? 没搞错吧！</a></li><li><a href=#安装与踩坑记录>安装与踩坑记录</a><ul><li><a href=#练习过程>练习过程</a></li><li><a href=#实体机安装>实体机安装</a></li><li><a href=#添加-windows-11-组成双系统>添加 Windows 11 组成双系统</a></li><li><a href=#坑1-外接显示器没反应>坑1：外接显示器没反应</a></li><li><a href=#坑2-休眠之后立马被唤醒>坑2：休眠之后立马被唤醒</a></li><li><a href=#坑3-使用基于-electron-的应用时输入法-fcitx5-巨慢无比>坑3：使用基于 Electron 的应用时输入法 Fcitx5 巨慢无比</a></li><li><a href=#坑4-在挂载的硬盘里无法使用-git-操作文件>坑4：在挂载的硬盘里无法使用 git 操作文件</a></li></ul></li><li><a href=#搭建一个-hifi-听音系统>搭建一个 HIFI 听音系统</a></li><li><a href=#其他定制化>其他定制化</a></li><li><a href=#org-笔记工作流调整>Org 笔记工作流调整</a></li><li><a href=#尾声>尾声</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=arch-没搞错吧>Arch ? 没搞错吧！</h2><p>其实在很多年前我就听闻了 Arch Linux 的大名，当时的我应该连 Emacs 都是初学，连一行 Elisp 代码都不会写呢。没记错的话当时应该是在看 Emacs 的教学视频，怎么写配置文件之类的，而 Arch Linux 这个罪恶的名字就出现在相关推荐中。</p><p>对 Arch 最初的印象还是从许多它有关的 memes 里产生的，我想跟我差不多的人不在少数。现在想想 Arch 有这么多的刻板印象和 memes 总体来说还是好事，否则许多用户可能都不会去了解这个操作系统。我的情况比较特殊，因为当时已经在折腾
+Emacs 这个深坑了，所以即使知道有这么个 So Cool 的发行版，但还是按捺住想尝试的渴望。现在来看当时没去尝试的原因莫不如说是当时被 Emacs
+搞得无心再去折腾其他东西了。</p><p>时隔多年（大约有4-5年了吧），在一个无聊的下午我又打开了 Arch Linux 的官方安装指南页面，安装了虚拟机平台 VMWare Workstation ，下载了 Arch 的最新安装镜像，开始了我的 Arch Linux 之旅。在虚拟机里的安装非常顺利，有了这一步的成功的经验之后，我深知已经无法停止我的脚步。紧接着我就开始了实体机上的安装。</p><p>本篇博客不是一个详尽的 Arch Linux 安装教程，因为这类教程已经太多了，甚至可以说已经过多了。本文只记录一些我踩过的坑，顺便谈谈我如何定制属于我自己的
+Arch Linux 的。</p><p>BTW，如果你是一个 HIFI 音乐爱好者，或许这篇文章会对你有所启发。你可以直接跳到 <a href=#%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA-hifi-%E5%90%AC%E9%9F%B3%E7%B3%BB%E7%BB%9F>对应的节</a> 。</p><h2 id=安装与踩坑记录>安装与踩坑记录</h2><h3 id=练习过程>练习过程</h3><p>对于新手来说，在用实体机安装 Arch Linux 之前最好在虚拟机上过一遍安装过程。这里我直接参考了 <a href=https://arch.icekylin.online/>archlinux简明指南</a> 的内容（下称“简明指南”），一步一步跟着做就能轻松完成基础操作系统和桌面环境的安装，在这里对这篇指南的作者们说声感谢。</p><p>我练习时用的是单系统，也就是模拟在实体机上只安装一个操作系统的情况，这是因为我想在之后实体机的安装中使用 Arch Linux 的 Live 环境来对磁盘进行格式化和分区，在安装完 Arch 之后再安装 Windows 11 。这与大多数人的需求可能不太一样，对于大多数人来说，一般是在已有一个 Windows 系统的前提下安装 Arch Linux 做双系统。这种情况下应当完全参照简明指南来安装。</p><h3 id=实体机安装>实体机安装</h3><p>如果你事先在虚拟机上过了一遍安装流程，那么实体机的安装应该不困难，这里只写一些注意事项（其实这些东西在简明指南中都有提及，这里重复一遍只是因为真的很重要）：</p><ol><li>确保你在 BIOS 中安装了 Secure Boot</li><li>确保 BIOS 的启动方式为 UEFI（这个我在虚拟机中被坑过一次）</li><li>确保有网络连接（有线或无线）</li></ol><p>接着就可以按简明指南的步骤做了。安装过程中在硬盘分区的时候，我按事先的想法给 EFI 分了 512MB 的空间，因为之后还要再装 Windows 11 ，所以这个分区要比单系统大一些。对于 Swap 分区和 Arch 系统空间，我分别给了 24GB
+和 512GB 。我电脑的内存为 40GB （没错，就是 “我的十月：修电脑、崩系统、灾祸与重建” 那篇文章里的笔记本电脑），按道理应该用 Swap 文件来代替
+Swap 分区的，但因为看到简明指南中提到使用 Swap 文件在 Btrfs 分区中比较复杂，所以就没搞了。这台电脑我用一整块 1TB 的固态硬盘来安装双系统，这里给 Arch 分了更大的空间，因为我之后想把 Arch 做为主力操作系统，而 Windows
+只在需要使用只能在 Windows 上运行的软件时才会启动一下。</p><p>这样的分区方式只是适合我，每个人在分区之前都要好好想一想制定一个最适合自己工作流的分区方案。</p><p>按简明指南的步骤应当已经能安装到桌面环境这一步，本文之后的内容也是在这一步之后发生的。</p><p>本节笔记（只做部分记录，完整安装过程参考指南）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 查看磁盘信息</span>
+</span></span><span class=line><span class=cl>lsblk
+</span></span><span class=line><span class=cl>fdisk -l
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 清空磁盘上的分区表</span>
+</span></span><span class=line><span class=cl>parted /dev/yourdisk
+</span></span><span class=line><span class=cl>mktable
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 重新分区</span>
+</span></span><span class=line><span class=cl>cfdisk /dev/yourdisk
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 格式化分区</span>
+</span></span><span class=line><span class=cl>mkfs.fat -F32 /dev/your_efi_partition
+</span></span><span class=line><span class=cl>mkswap /dev/your_swap_partition
+</span></span><span class=line><span class=cl>mkbtrfs -L yourLabel /dev/your_system_partition
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 创建子卷，先临时挂载到一个目录，再创建</span>
+</span></span><span class=line><span class=cl>btrfs subvolume create /mnt/@
+</span></span><span class=line><span class=cl>btrfs subvolume create /mnt/@home
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 生成引导</span>
+</span></span><span class=line><span class=cl>grub-install --target<span class=o>=</span>x86_64-efi --efi-directory<span class=o>=</span>/boot --bootloader-id<span class=o>=</span>ARCH
+</span></span></code></pre></td></tr></table></div></div><h3 id=添加-windows-11-组成双系统>添加 Windows 11 组成双系统</h3><p>在安装完 Arch 的桌面环境之后就可以先关闭电脑了。接着插入 Windows 11 的启动盘开始装 Windows ，安装时选择安装位置为上面安装 Arch 时留下来的空分区。按步骤安装完成 Windows 11 ，这个安装就很简单了。</p><p>因为安装完 Windows 后 EFI 分区会被 Windows 覆盖，所以要再插上 Arch 的启动盘，进 Live 环境修复启动分区。这里详细写一下修复步骤：</p><p>首先，挂载 Arch 的所有磁盘分区：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 查看分区信息</span>
+</span></span><span class=line><span class=cl>lsblk <span class=c1># 或 fdisk -l</span>
+</span></span><span class=line><span class=cl>mount -t btrfs -o <span class=nv>subvol</span><span class=o>=</span>/@,compress<span class=o>=</span>zstd /dev/sdxn /mnt
+</span></span><span class=line><span class=cl>mount -t btrfs -o <span class=nv>subvol</span><span class=o>=</span>/@home,compress<span class=o>=</span>zstd /dev/sdxn /mnt/home
+</span></span><span class=line><span class=cl>mount /dev/sdxn /mnt/boot
+</span></span><span class=line><span class=cl>swapon /dev/sdxn
+</span></span></code></pre></td></tr></table></div></div><p>然后切换系统环境：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>arch-chroot /mnt
+</span></span></code></pre></td></tr></table></div></div><p>接着重新安装 Grub 到 EFI 分区：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>grub-install --target<span class=o>=</span>x86_64-efi --efi-directory<span class=o>=</span>/boot --bootloader-id<span class=o>=</span>ARCH
+</span></span></code></pre></td></tr></table></div></div><p>之后修改 grub 设置，允许 Windows 11 启动：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>vim /etc/default/grub
+</span></span><span class=line><span class=cl><span class=c1># 添加一项 GRUB_DISABLE_OS_PROBER=false 后退出</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 生成 grub 配置</span>
+</span></span><span class=line><span class=cl>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></td></tr></table></div></div><p>退出环境，重启：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>exit</span>
+</span></span><span class=line><span class=cl>umount -R /mnt
+</span></span><span class=line><span class=cl>reboot
+</span></span></code></pre></td></tr></table></div></div><p>之后你应该就能进入 grub 引导，并且能选择启动 Arch 还是启动 Windows 。</p><h3 id=坑1-外接显示器没反应>坑1：外接显示器没反应</h3><p>这个问题出现在安装了 NVidia 显卡驱动之后的独显+集显的笔记本里。一个简单的解决方法就是使用 optimus-manager 把启动时默认的显卡设置为独显。
+optimus-manager 的安装参考 <a href=https://arch.icekylin.online/guide/rookie/graphic-driver.html#%E5%8F%8C%E6%98%BE%E5%8D%A1-%E9%9B%86%E6%98%BE-%E7%8B%AC%E6%98%BE>简明教程里的这一段</a> 。</p><h3 id=坑2-休眠之后立马被唤醒>坑2：休眠之后立马被唤醒</h3><p>查看系统日志 <code>sudo journalctl -b | grep sleep</code> 后出现
+System Power Management attempted without driver procfs suspend interface.
+相关字样。</p><p>这个问题也是 NVidia 驱动的锅（万恶的 NVidia ）。解决方法参考 <a href="https://bbs.archlinuxcn.org/viewtopic.php?id=14610">这里</a> ，简单来说就是添加一个内核参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 添加配置文件</span>
+</span></span><span class=line><span class=cl>sudo vim /etc/modprobe.d/nvidia.conf
+</span></span></code></pre></td></tr></table></div></div><p>在配置文件中加入这么一行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>options nvidia NVreg_PreserveVideoMemoryAllocations=0
+</span></span></code></pre></td></tr></table></div></div><p>然后重新生成镜像：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo mkinitcpio -P
+</span></span></code></pre></td></tr></table></div></div><p>重启之后问题得到了解决。</p><p>关于休眠相关的内容有点意思，具体参考简明指南的 <a href=https://arch.icekylin.online/guide/advanced/optional-cfg-2#%F0%9F%92%A4-%E4%BC%91%E7%9C%A0-hibernate-%E8%AE%BE%E7%BD%AE>休眠设置</a> 。</p><h3 id=坑3-使用基于-electron-的应用时输入法-fcitx5-巨慢无比>坑3：使用基于 Electron 的应用时输入法 Fcitx5 巨慢无比</h3><p>这个其实在简明教程中 <a href=https://arch.icekylin.online/guide/rookie/desktop-env-and-app.html#_10-%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95>提到过</a> ，解决的办法就是加启动参数。</p><p>以 linuxqq 为例，直接编辑它的启动方式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo vim /usr/share/applications/qq.desktop
+</span></span></code></pre></td></tr></table></div></div><p>然后将 <code>Exec</code> 后面的启动命令改成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>Exec=linuxqq %U --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
+</span></span></code></pre></td></tr></table></div></div><p>注意如果这个文件里有不至一个 Exec 那么都需要修改。软件更新的时候新增的启动参数会消失，记得重新加回去。</p><h3 id=坑4-在挂载的硬盘里无法使用-git-操作文件>坑4：在挂载的硬盘里无法使用 git 操作文件</h3><p>首先简单写一下怎样挂载其他硬盘，按下面的步骤来就行了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 首先查看硬盘地址</span>
+</span></span><span class=line><span class=cl>sudo lsblk <span class=c1># 或 sudo fdisk -l</span>
+</span></span><span class=line><span class=cl><span class=c1># 这里假定地址是 /dev/sda2，然后查看设备 ID</span>
+</span></span><span class=line><span class=cl>sudo blkid -d /dev/sda2 <span class=c1># 找到 UUID= 后面的一串编号</span>
+</span></span></code></pre></td></tr></table></div></div><p>我这里编号是 9CB6BBD7B6BBAFDE ，有了这串编号后直接编辑分区表文件 <code>fstab</code> ：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo vim /etc/fstab
+</span></span></code></pre></td></tr></table></div></div><p>在最后添加一行：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>UUID=9CB6BBD7B6BBAFDE   /mnt/data       ntfs-3g defaults      0 0
+</span></span></code></pre></td></tr></table></div></div><p>其中 ntfs-3g 表示这个分区采用的系统，因为我这个硬盘是与 Windows 11
+共用的，所以使用了 NTFS 系统。如果你的硬盘是其他系统的，记得改成对应的系统名（比如 btrfs, ext4 等 ）。 <code>/mnt/data/</code> 是挂载到的目录，确保这个目录是存在的。</p><p>编辑完后重启电脑，进入 Dolphin 就能看见挂载的硬盘了。</p><p>在这个新硬盘上使用 git 提交的时候出错，原因是这个硬盘是以 root 的身份挂载的，而当前系统是普通用户。这时的解决方法是先查看当前用户的
+uid 和 gid 。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>id 你的用户名
+</span></span></code></pre></td></tr></table></div></div><p>我这里输出 uid=1000, gid=1000 。然后再次打开 fstab 将上面添加的那一行改成：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>UUID=9CB6BBD7B6BBAFDE   /mnt/data       ntfs-3g defaults,uid=1000,gid=1000      0 0
+</span></span></code></pre></td></tr></table></div></div><p>重启后这块盘的所有者就成当前用户了，再使用 git 就不会出现问题。</p><p>当然最好是一开始添加分区项的时候就把 uid 和 gid 加上，免得重启两次电脑。</p><h2 id=搭建一个-hifi-听音系统>搭建一个 HIFI 听音系统</h2><p>这一节已独立成篇，见 <a href=/post/tricks/music_on_arch/>如何在 Arch 上播放 HIFI 音乐？</a></p><h2 id=其他定制化>其他定制化</h2><p>除了上面说的听音系统外，我个人 DIY 的成分就比较少了，不过也是有一些。这里就简单说说了。第一件事就是自定义了一下睡眠机制，编辑文件 /etc/systemd/sleep.conf ，定制了睡眠/休眠的时间：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>[Sleep]
+</span></span><span class=line><span class=cl>AllowSuspend=yes
+</span></span><span class=line><span class=cl>AllowHibernation=yes
+</span></span><span class=line><span class=cl>AllowSuspendThenHibernate=yes
+</span></span><span class=line><span class=cl>AllowHybridSleep=yes
+</span></span><span class=line><span class=cl>SuspendState=mem standby freeze
+</span></span><span class=line><span class=cl>HibernateMode=platform shutdown
+</span></span><span class=line><span class=cl>MemorySleepMode=s2idle deep
+</span></span><span class=line><span class=cl>HibernateDelaySec=120min
+</span></span><span class=line><span class=cl>HibernateOnACPower=yes
+</span></span><span class=line><span class=cl>SuspendEstimationSec=60min
+</span></span></code></pre></td></tr></table></div></div><p>同时我还指定了鼠标和键盘能在睡眠期间唤醒电脑，方式与上面的 DAC 热拔插一致，都是在 <code>/etc/udev/rules.d/</code> 下创建新规则。规则中检测到特定设备插入时就往相应的设备目录下 <code>power/wakeup</code> 写 enabled 。具体参考
+<a href=https://unix.stackexchange.com/questions/609438/how-can-i-use-a-usb-keyboard-or-mouse-to-wake-from-suspend>StackExchange</a> 上的回答。</p><p>此外，我还更换了主力的写代码编辑器，从 Visual Studio Code 换成了
+<a href=https://zed.dev/>Zed</a> ，目前用下来体验不错。</p><h2 id=org-笔记工作流调整>Org 笔记工作流调整</h2><p>作为 Emacser ，在新的系统上装 Emacs 是必然的。这次我决定不在这上面折腾太多，直接用 Doom Emacs + 少量自已定制的 Elisp 代码和 Package 。</p><p>原来的笔记全都使用 OneDrive 同步，我在 Arch 上也安装了
+<a href=https://aur.archlinux.org/packages/onedrive-abraunegg>onedrive-abraunegg</a> 。想不到 Linux 上也能方便地使用 OneDrive ，感恩开源作者。为了保证 Arch 上的 org 笔记与 OneDrive 上我决定要同步的笔记分开，我创建了两个笔记目录，并使用快捷键切换它们：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-elisp data-lang=elisp><span class=line><span class=cl><span class=c1>;; doom&#39;s config.el</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=nb>setq</span> <span class=nv>org-directory</span> <span class=s>&#34;~/Documents/notes/org/&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=nb>defun</span> <span class=nv>yuh/org-switch-directory</span> <span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=s>&#34;Switch org directory between Arch and OneDrive&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>(</span><span class=nb>interactive</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>(</span><span class=nb>if</span> <span class=p>(</span><span class=nf>equal</span> <span class=nv>org-directory</span> <span class=s>&#34;~/Documents/notes/org/&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>(</span><span class=nb>progn</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nb>setq</span> <span class=nv>org-directory</span> <span class=s>&#34;~/OneDrive/note/org/&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=nf>message</span> <span class=s>&#34;Switched to OneDrive.&#34;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=p>(</span><span class=nb>progn</span>
+</span></span><span class=line><span class=cl>      <span class=p>(</span><span class=nb>setq</span> <span class=nv>org-directory</span> <span class=s>&#34;~/Documents/notes/org/&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>(</span><span class=nf>message</span> <span class=s>&#34;Switched to Arch.&#34;</span><span class=p>))))</span>
+</span></span><span class=line><span class=cl><span class=p>(</span><span class=nv>map!</span> <span class=nb>:leader</span>
+</span></span><span class=line><span class=cl>      <span class=nb>:desc</span> <span class=s>&#34;Org Directory Switcher&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=s>&#34;n d&#34;</span> <span class=nf>#&#39;</span><span class=nv>yuh/org-switch-directory</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=尾声>尾声</h2><p>本来只打算浅浅分享一下 Arch Linux 新系统的体验，没想到洋洋洒洒写了五千多个字，甚至为了清晰不得不把其中构建音频系统的部分 <a href=/post/tricks/music_on_arch/>提出来</a> 。只要其中的一些内容能对读者有一丁点帮助，那就是我莫大的荣幸了。</p><p>同时，我还得感谢 Arch Linux ，帮助我度过一个个无聊的下午和晚上，同时让我获得了 DIY 的乐趣。顺便一提，原本在 Windows 上使用 FIIO KA11
+播放音乐的时候由于驱动问题会时常卡顿，到了 Arch 上就完全没有了这种问题，而且还能避免系统的重采样，可能这就是 Arch 给我的见面礼吧。</p><p>总之，今后也会以它为主力系统。</p><p>Arch, please go easy with me.</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Niall Zhou</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2025-01-18 19:38</span></p><p class=copyright-item><span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span></p></div><footer class=post-footer><div class=post-tags><a href=/tags/%E6%8A%98%E8%85%BE/>折腾</a></div><nav class=post-nav><a class=prev href=/post/tricks/music_on_arch/><i class="iconfont icon-left"></i>
+<span class="prev-text nav-default">如何在 Arch 上播放 HIFI 音乐？</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a><a class=next href=/post/articles/coen-movie-review/><span class="next-text nav-default">大地惊雷 & 老无所依 ———简评与解析</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:niazhou@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/yhzhoucs class="iconfont icon-github" title=github></a><a href=http://niallzhou.cfd/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span><span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span><span class=copyright-year>&copy;
+2022 -
+2025<span class=heart><i class="iconfont icon-heart"></i></span><span>Niall Zhou</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js></script><script type=text/javascript>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],tags:"ams"}}</script><script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script></body></html>
