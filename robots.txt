@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: http://niallzhou.org/sitemap.xml
+Sitemap: https://niallzhou.org/sitemap.xml
