@@ -1,0 +1,14 @@
+Index: shadowsocks-rust-1.22.0/Cargo.toml
+===================================================================
+--- shadowsocks-rust-1.22.0.orig/Cargo.toml
++++ shadowsocks-rust-1.22.0/Cargo.toml
+@@ -250,6 +250,9 @@ shadowsocks-service = { version = "1.22.
+ 
+ windows-service = { version = "0.7", optional = true }
+ 
++[patch.crates-io]
++getrandom = { git = 'https://github.com/rust-random/getrandom.git', tag = 'v0.3.1' }
++
+ [target.'cfg(unix)'.dependencies]
+ daemonize = "0.5"
+ 
